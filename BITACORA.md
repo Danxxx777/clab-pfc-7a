@@ -18,3 +18,11 @@ Se reunieron cinco artículos de revistas indexadas en Scopus, publicados entre 
 OpenAI Codex asistió con la búsqueda, el filtro de fuentes, y la preparación de la estructura nuevos archivos (.bib).
 
 Queda pendiente redactar la comparación de los tres estudios y completar el mínimo de ocho referencias de la entrega.
+
+## Carlos Manotoa: 2026-11-19 - Primera redacción de los trabajos relacionados de E1
+
+Responsable de Calidad: Carlos Manotoa. Tiempo estimado de la actividad: 4 horas.
+
+Se incorporó a [Carlos.tex](docs/Carlos.tex) un primer borrador del punto 5, sujeto a revisión y cambios. Se compararon STEM RRL, Biblio-Smart, el modelo de ITC 2019 y la propuesta de CLAB en nueve características, desde la consulta de disponibilidad y las reglas de reserva hasta la arquitectura y la evaluación.
+
+El borrador identifica qué ideas puede aprovechar CLAB y distingue las funciones propuestas de la comunicación entre servicios que ya demuestra el esqueleto. Se comprobó la compilación del documento y la resolución de las citas.
