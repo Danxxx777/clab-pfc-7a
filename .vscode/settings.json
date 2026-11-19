@@ -1,0 +1,9 @@
+{
+  "java.import.exclusions": [
+    "**/legado/**",
+    "**/node_modules/**",
+    "**/.metadata/**",
+    "**/archetype-resources/**",
+    "**/META-INF/maven/**"
+  ]
+}
