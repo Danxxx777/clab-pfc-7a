@@ -1,0 +1,106 @@
+% !TeX root = ../main.tex
+\section{Justificación de la arquitectura distribuida}
+\label{sec:clab-distribucion}
+
+CLAB parte de una aplicación Angular con backend Spring Boot y persistencia
+PostgreSQL. El documento previo identifica reservas coordinadas informalmente,
+conflictos de horario, inventario desactualizado e incidencias sin seguimiento.
+Estos problemas justifican informatizar el proceso, pero no demuestran por sí
+solos que un monolito sea incapaz de resolverlo. No se dispone todavía del acta
+firmada o de la grabación consentida que permita verificar el levantamiento
+exigido en E1; se usa el documento previo como antecedente, no como evidencia
+primaria validada.
+
+La distribución se propone para permitir despliegues por dominio y aislar el
+procesamiento de reportes y avisos de la confirmación de reservas. Por ejemplo,
+una actualización de estadísticas no debe exigir desplegar de nuevo la agenda;
+una caída del servicio de informes no debe deshacer una reserva confirmada.
+Un monolito modular es una alternativa viable para la demanda descrita, pero no
+ofrece esa independencia de procesos y despliegue. Además, el plan académico
+requiere migrar el sistema completo a una base distribuida durante el periodo.
+No se usa como justificación una supuesta operación multisede, una saturación
+medida o una necesidad de nube pública: ninguna ha sido comprobada.
+
+El antecedente fija menos de 2 segundos por petición REST bajo carga normal,
+50 usuarios concurrentes y disponibilidad mínima del 99\,\% en horario académico.
+Se conservan como metas de partida: faltan definir la mezcla de operaciones,
+el percentil de latencia y la ventana de observación. Separar servicios podría
+permitir escalar consultas e informes sin replicar toda la aplicación, pero
+agrega llamadas de red y no prueba que esas metas se cumplan. La disponibilidad
+debe evaluarse por operación: una consulta de avisos puede fallar sin afectar
+la agenda, mientras que la pérdida de Identidad impedirá autorizar solicitudes
+protegidas. Un único servidor o una única instancia PostgreSQL siguen siendo
+puntos comunes de fallo.
+
+\subsection{Trazabilidad hacia los requisitos del antecedente}
+
+Los siguientes identificadores pertenecen al documento previo de CLAB; no
+suplantan las historias ni los requisitos de calidad que se aprueben para E1:
+\begin{description}
+  \item[RF-04 a RF-06 y RF-11:] la consulta de disponibilidad, las reservas y
+  los bloqueos se apoyan en una agenda autoritativa. Laboratorios entrega metadatos,
+  pero Reservas decide si un intervalo puede confirmarse.
+  \item[RF-07 a RF-10:] inventario, estado de equipos e incidencias se agrupan
+  en Laboratorios y Recursos para mantener local el historial técnico.
+  \item[RF-13 a RF-15:] reportes, auditoría y avisos admiten una vista central
+  diferida, sin retrasar la confirmación de la agenda; la auditoría fuente se
+  persiste junto con cada modificación.
+  \item[RNF-01 y RNF-09:] los límites previos de menos de 2 segundos y al menos
+  50 usuarios concurrentes orientan pruebas de carga y escalado selectivo.
+  Faltan percentil, mezcla de operaciones y criterio de degradación aceptable;
+  no se da por demostrado que repartir procesos reduzca la latencia.
+  \item[RNF-02:] el 99\,\% de disponibilidad requiere definir horario y ventana
+  de observación. Separar informes puede aislar fallos, pero no elimina la
+  dependencia de Identidad ni la de infraestructura compartida.
+  \item[RNF-03 y RNF-04:] BCrypt, HTTPS y expiración de tokens de hasta 24 horas
+  se conservan como restricciones del antecedente. La verificación de permisos
+  en Identidad evita equiparar vigencia del token con autorización irrevocable.
+  \item[RNF-06:] el despliegue institucional sin nube pública se preserva.
+  La separación lógica no obliga a adquirir infraestructura externa ni supone
+  que varios procesos en un mismo equipo toleren la pérdida de ese equipo.
+\end{description}
+
+\subsection{Resumen de ADR-001}
+
+\textbf{Estado: propuesta pendiente de aceptación del equipo.} Se compararon
+un monolito modular, doce servicios ---uno por módulo--- y cuatro servicios por
+dominio. Se propone la tercera opción para limitar la complejidad operativa:
+\begin{itemize}
+  \item \textbf{Identidad y Académico:} usuarios, roles, permisos, datos
+  académicos y estudiantes.
+  \item \textbf{Laboratorios y Recursos:} catálogo, equipos e incidencias.
+  \item \textbf{Reservas y Agenda:} reservas, bloqueos y asistencia.
+  \item \textbf{Información y Avisos:} reportes de uso, notificaciones y vista
+  central de auditoría; la auditoría original permanece en cada dominio.
+\end{itemize}
+
+Así se cubren los doce módulos sin exigir doce despliegues. Cada servicio es
+dueño de su almacenamiento; no accede a tablas de otro servicio. Reservas
+conserva juntas las reservas y los bloqueos para decidir la ocupación en una
+transacción local. Se propone que todas las mutaciones de agenda adquieran el
+mismo bloqueo de fila por laboratorio antes de comprobar solapamientos y
+persistir. La documentación de PostgreSQL distingue restricciones entre filas
+de simples comprobaciones locales; una consulta previa aislada no sustituye
+la protección concurrente\cite{clabPostgresRestricciones}.
+
+La comunicación REST/JSON ya existe en el esqueleto de E1. El diseño futuro
+propone consultas sincrónicas para autorización y validación del catálogo,
+y lectura incremental de cambios durables en segundo plano para informes y
+avisos. Los contratos y parámetros deben cerrarse en ADR-002 con los resultados
+reales de PE-U1, que no estuvieron disponibles en esta revisión. No se atribuye
+a REST una superioridad experimental todavía no demostrada.
+
+La migración prevista es incremental: E1 define límites y demuestra dos procesos
+comunicándose; E2 incorpora APIs y contenedores; E3 completa la separación de
+datos, los módulos restantes y las proyecciones; E4 valida la migración completa,
+la recuperación y la calidad. Cada corte mantiene una única fuente de escritura
+por entidad y verifica los procedimientos SQL del legado antes de sustituirlos.
+El registro completo de opciones, consecuencias y pruebas pendientes está en
+\texttt{docs/adr/ADR-001-estilo-arquitectonico.md}.
+
+\paragraph{Estado de implementación y autoría.}
+En la revisión del código se identificaron dos servicios mínimos sin persistencia
+de negocio. Los cuatro servicios y sus garantías son diseño propuesto, no
+integración realizada. Esta sección y ADR-001 se prepararon con asistencia de
+IA (OpenAI, GPT-6.1 Sol); no acreditan validación institucional ni aprobación
+del equipo.

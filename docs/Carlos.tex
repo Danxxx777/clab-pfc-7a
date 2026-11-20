@@ -6,8 +6,132 @@
 % Punto 5 de la guía.
 \newcommand{\CarlosTrabajosRelacionados}{%
   \section{Trabajos relacionados}
-  % Claves de los tres estudios seleccionados:
-  % \cite{gilVera2024}, \cite{garciaGranja2022} y \cite{muller2025}.
+
+  Se comparan tres antecedentes para la aplicación de gestión de laboratorios
+  informáticos (CLAB) de la Universidad Técnica Estatal de Quevedo (UTEQ).
+  Gil Vera et al. presentan el \emph{STEM Real Remote Laboratory} (STEM RRL)
+  \cite{gilVera2024}. García-Granja et al. desarrollan Biblio-Smart para la
+  Biblioteca General de la Universidad de Málaga \cite{garciaGranja2022}.
+  Müller et al. estudian el modelo del \emph{International Timetabling
+  Competition 2019} (ITC 2019), construido a partir de datos de universidades que
+  usan UniTime \cite{muller2025}. Las funciones de CLAB se presentan como
+  propuestas de diseño. Su esqueleto actual demuestra la comunicación entre
+  los servicios de Laboratorios y Reservas.
+
+  \subsection{Recurso que se reserva}
+
+  STEM RRL permite reservar acceso remoto a equipos físicos para prácticas de
+  electrónica \cite{gilVera2024}. Biblio-Smart permite reservar un asiento
+  individual de biblioteca \cite{garciaGranja2022}. El modelo de ITC 2019
+  asigna aulas y franjas horarias a clases durante la planificación académica
+  \cite{muller2025}. CLAB propone gestionar laboratorios informáticos completos
+  para actividades presenciales. De STEM RRL puede tomar la identificación
+  inequívoca del recurso reservado. De ITC 2019 puede aprovechar la relación
+  entre espacio, franja y actividad para que cada reserva indique qué
+  laboratorio se usará, cuándo y para qué.
+
+  \subsection{Consulta de disponibilidad}
+
+  En STEM RRL, el usuario elige un laboratorio remoto, un día y una franja
+  habilitada en el calendario \cite{gilVera2024}. Biblio-Smart distingue en un
+  mapa los asientos libres, reservados y ocupados, y permite consultar sus
+  características antes de elegir \cite{garciaGranja2022}. ITC 2019 representa
+  los periodos en los que cada aula puede asignarse \cite{muller2025}. CLAB
+  propone un calendario por laboratorio que combine la selección por fecha de
+  STEM RRL con la distinción visual de estados de Biblio-Smart. Un docente
+  podría ver si una franja está disponible, reservada o bloqueada por la
+  institución antes de enviar la solicitud.
+
+  \subsection{Permisos según el usuario}
+
+  STEM RRL asigna a estudiantes, docentes y administradores permisos diferentes
+  para reservar, configurar equipos o programar mantenimiento
+  \cite{gilVera2024}. Biblio-Smart ofrece un flujo de reserva para los miembros
+  de la universidad a través de su aplicación institucional
+  \cite{garciaGranja2022}. ITC 2019 emplea matrículas y grupos para determinar
+  a qué clases puede asignarse cada estudiante dentro del horario
+  \cite{muller2025}. CLAB puede tomar de STEM RRL la separación entre quienes
+  solicitan una franja y quienes administran la disponibilidad. Esa distinción
+  permite definir quién puede solicitar una reserva, programar una serie o
+  bloquear un laboratorio, de acuerdo con las responsabilidades de la UTEQ.
+
+  \subsection{Reservas puntuales y recurrentes}
+
+  STEM RRL permite reservar franjas por adelantado y ofrece a los docentes
+  la opción de programar reservas periódicas \cite{gilVera2024}.
+  Biblio-Smart describe la reserva individual de un asiento con un plazo
+  para ocuparlo \cite{garciaGranja2022}. ITC 2019 admite clases que se repiten
+  varios días o únicamente en determinadas semanas del semestre
+  \cite{muller2025}. CLAB propone cubrir tanto una práctica puntual como una
+  asignación recurrente para una materia. De STEM RRL puede tomar la
+  distinción entre ambos flujos y de ITC 2019 puede aprovechar el manejo de
+  excepciones, como omitir una fecha en la que el laboratorio esté bloqueado.
+
+  \subsection{Conflictos y alternativas de horario}
+
+  STEM RRL marca las franjas reservadas por otros usuarios y exige que los
+  bloques de una misma selección sean contiguos \cite{gilVera2024}.
+  Biblio-Smart permite consultar los atributos de distintos asientos libres
+  para elegir el que mejor se ajuste a las necesidades del usuario
+  \cite{garciaGranja2022}. ITC 2019 distingue las restricciones obligatorias
+  de las preferencias al evaluar un horario \cite{muller2025}. CLAB podría
+  aplicar esa distinción a cada solicitud. Un solapamiento con una reserva
+  confirmada del mismo laboratorio impediría aceptarla. La cercanía a la hora
+  solicitada serviría para ordenar las alternativas disponibles. La regla
+  contra solapamientos también tendría que verificarse con solicitudes
+  simultáneas cuando se implemente la reserva.
+
+  \subsection{Confirmación y uso efectivo del recurso}
+
+  STEM RRL genera una credencial asociada a la reserva para acceder al equipo
+  remoto durante la franja asignada \cite{gilVera2024}. Biblio-Smart envía una
+  confirmación por correo, detecta la presencia del usuario en el asiento
+  mediante el teléfono y libera el puesto después del periodo de ausencia
+  configurado \cite{garciaGranja2022}. ITC 2019 genera una asignación que indica
+  dónde y cuándo debe realizarse cada clase \cite{muller2025}. CLAB podría
+  tomar de Biblio-Smart la distinción entre una reserva confirmada y el uso
+  efectivo del espacio. Si el alcance incluye un registro de asistencia, esa
+  distinción permitiría identificar qué reservas llegaron a utilizarse.
+
+  \subsection{Bloqueos y cambios de disponibilidad}
+
+  STEM RRL permite habilitar o deshabilitar recursos, fijar sus periodos de
+  disponibilidad y programar mantenimiento \cite{gilVera2024}. Biblio-Smart
+  actualiza el estado de los asientos según la reserva y la presencia del
+  usuario. También simula cómo una regla de distanciamiento cambia los
+  puestos disponibles \cite{garciaGranja2022}. ITC 2019 admite periodos en
+  los que un aula no puede asignarse \cite{muller2025}. CLAB podría combinar
+  el caso de mantenimiento de STEM RRL con los periodos no disponibles de
+  ITC 2019 para bloquear un laboratorio durante una franja concreta. Cuando
+  un bloqueo afecte una reserva confirmada, el flujo tendría que contemplar
+  cómo avisar al responsable y gestionar la reprogramación.
+
+  \subsection{Arquitectura e integración}
+
+  STEM RRL conecta un sistema de reservas independiente con la plataforma
+  académica y los equipos de acceso remoto \cite{gilVera2024}. Biblio-Smart
+  combina una aplicación móvil, un servicio web, dispositivos de detección
+  y un modelo digital del edificio \cite{garciaGranja2022}. ITC 2019 usa
+  datos exportados de UniTime para comparar algoritmos que generan horarios
+  \cite{muller2025}. En el esqueleto de CLAB, Reservas consulta a
+  Laboratorios mediante REST con JSON. El proyecto puede tomar de STEM RRL
+  la separación entre la gestión del recurso y la de sus reservas, y de
+  Biblio-Smart la idea de presentar el estado del recurso de forma clara
+  en la interfaz.
+
+  \subsection{Evaluación del sistema}
+
+  STEM RRL recogió comentarios de 28 estudiantes después de probar el
+  laboratorio remoto en tres prácticas, con preguntas sobre la reserva y el
+  acceso \cite{gilVera2024}. Biblio-Smart obtuvo 242 respuestas completas y
+  voluntarias sobre la calidad percibida del prototipo y la información de
+  los asientos \cite{garciaGranja2022}. ITC 2019 comparó algoritmos con 30
+  casos de planificación universitaria, entre ellos uno de Yachay Tech,
+  Ecuador, y examinó los resultados de asignación y los tiempos de cómputo
+  \cite{muller2025}. CLAB podría adoptar dos formas de evaluación. Con usuarios
+  de la UTEQ, comprobar si pueden encontrar y solicitar una franja. Con
+  pruebas técnicas, verificar que las reglas se cumplan en reservas
+  simultáneas, recurrentes y afectadas por bloqueos.
 }
 
 % Punto 6 de la guía, dentro de la sección de requisitos del equipo.
