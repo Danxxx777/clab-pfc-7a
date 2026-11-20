@@ -31,11 +31,11 @@ Abre la raíz del repositorio en el editor. En IntelliJ IDEA, importa el `pom.xm
 
 ## Requisitos de ejecución
 
-- JDK 17 o 21 con `java` disponible en la terminal. Compruébalo con `java -version`.
+- JDK 25 con `java` disponible en la terminal. Compruébalo con `java -version`.
 - Acceso a Internet durante la primera compilación para descargar Maven y sus dependencias.
 - Puertos locales 8081 y 8082 disponibles.
 
-El Maven Wrapper incluido permite compilar desde Windows, Linux y macOS. El código nuevo utiliza Spring Boot 3.2.1 y Java 17, las versiones declaradas por el backend original.
+El Maven Wrapper incluido permite compilar desde Windows, Linux y macOS. El proyecto utiliza Spring Boot 3.5.16 y Java 25.
 
 ## Compilación
 
