@@ -137,7 +137,83 @@
 % Punto 6 de la guía, dentro de la sección de requisitos del equipo.
 \newcommand{\CarlosRequisitosNoFuncionales}{%
   \subsection{Requisitos no funcionales}
-  % Escribe aquí los requisitos no funcionales.
+
+  Estos requisitos describen cómo deberá comportarse la versión distribuida de
+  CLAB cuando estén implementadas las funciones que se evalúan. Se clasifican
+  según el modelo de calidad de
+  \href{https://www.iso.org/standard/78176.html}{ISO/IEC 25010:2023}.
+  Los 50 usuarios concurrentes, los 2 segundos y el 99\,\% de disponibilidad
+  proceden del informe previo de CLAB. La configuración de las pruebas y los
+  demás umbrales son propuestas que el equipo deberá validar con el
+  levantamiento de información.
+
+  \paragraph{RNF-01. Tiempo de respuesta (eficiencia de desempeño).}
+  Durante 10 minutos de carga estable con 50 usuarios virtuales concurrentes,
+  al menos el 95\,\% de las consultas válidas de disponibilidad deberá
+  devolver el resultado correcto en menos de 2 segundos. La medición se
+  realizará desde el cliente de prueba y el cálculo incluirá todas las
+  consultas emitidas, contando las respuestas erróneas y los tiempos de
+  espera agotados como incumplimientos. Para repetir la prueba se registrarán
+  la configuración del entorno, los datos de la agenda y el perfil de carga.
+  El uso de percentiles bajo distintos niveles de concurrencia se apoya en
+  \cite{pantelic2026Carga}.
+
+  \paragraph{RNF-02. Disponibilidad de la agenda (fiabilidad).}
+  Durante dos semanas, dentro del horario académico acordado con la UTEQ, al
+  menos el 99\,\% de las comprobaciones programadas de disponibilidad deberá
+  devolver un resultado correcto antes de agotar un tiempo de espera de
+  5 segundos. Una sonda externa al servicio ejecutará una consulta por minuto
+  con una cuenta de prueba autorizada. La tasa se calculará dividiendo las
+  comprobaciones exitosas por las programadas en la ventana de observación.
+  Se toma como referencia el uso de comprobaciones externas para medir la
+  disponibilidad \cite{mulahuwaish2022Disponibilidad}.
+
+  \paragraph{RNF-03. Autorización de operaciones (seguridad).}
+  En el 100\,\% de los casos de prueba de confirmación, cancelación y bloqueo,
+  la operación deberá quedar sin ejecutar si el usuario carece del permiso,
+  la sesión se ha revocado o el servicio de Identidad no puede verificar la
+  autorización. Se probará cada operación en esas tres condiciones y se
+  comprobará, además de la respuesta, que el estado de la agenda se conserve.
+  Los estudios sobre control de acceso y revocación sustentan la verificación
+  de estos escenarios
+  \cite{venckauskas2023Autorizacion,rasori2024Revocacion}.
+
+  \paragraph{RNF-04. Interfaz en escritorio y móvil (capacidad de interacción).}
+  Una persona con permisos deberá poder completar la consulta de disponibilidad
+  y el envío de una solicitud en las seis combinaciones de Chrome, Firefox y
+  Edge con anchos de pantalla de 360 y 1280 píxeles. En cada combinación
+  deberán poder utilizarse los controles necesarios de ambos flujos sin
+  desplazamiento horizontal de la página. La prueba registrará la versión
+  de cada navegador y el resultado de los dos flujos para cada ancho.
+  La evaluación en distintas configuraciones se apoya en el estudio de
+  incompatibilidades de presentación \cite{watanabe2023Interfaz}.
+
+  \paragraph{RNF-05. Instalación institucional (flexibilidad).}
+  El 100\,\% de los servicios incluidos en la versión evaluada deberá poder
+  desplegarse en un entorno limpio, con los prerrequisitos documentados,
+  equivalente al entorno institucional. Una vez instalados los servicios,
+  la prueba deberá completar una consulta de disponibilidad y confirmar una
+  reserva con el acceso a servicios de nube pública deshabilitado.
+  El procedimiento toma como referencia la instalación local reproducible
+  de una aplicación de microservicios \cite{simoes2026Despliegue}.
+
+  \paragraph{RNF-06. Continuidad ante la caída de Avisos (fiabilidad).}
+  Con Información y Avisos detenido y las dependencias de la agenda operativas,
+  las 10 solicitudes válidas de la prueba, cada una para una franja libre
+  diferente, deberán confirmarse y quedar guardadas en Reservas y Agenda.
+  Se comprobará la confirmación y la persistencia de cada solicitud antes
+  de restablecer el servicio detenido. Este escenario aplica la evaluación
+  mediante fallos inducidos a una dependencia concreta de CLAB
+  \cite{alSaidAhmad2024Fallos}.
+
+  \paragraph{RNF-07. Trazabilidad de cambios de agenda (seguridad).}
+  El 100\,\% de las confirmaciones, cancelaciones y bloqueos exitosos del
+  conjunto de prueba deberá tener un registro de auditoría en el servicio
+  de origen. El registro deberá contener el identificador de la operación,
+  el usuario, la acción y la fecha y hora. Se cotejará cada cambio con su
+  registro tanto con la vista central de auditoría activa como durante su
+  caída. Los datos del registro se apoyan en el modelo de trazabilidad de
+  eventos de \cite{lopezPimentel2022Auditoria}.
 }
 
 % Punto 12 de la guía.

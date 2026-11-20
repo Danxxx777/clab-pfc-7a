@@ -26,3 +26,9 @@ Responsable de Calidad: Carlos Manotoa. Tiempo estimado de la actividad: 4 horas
 Se incorporó a [Carlos.tex](docs/Carlos.tex) un primer borrador del punto 5, sujeto a revisión y cambios. Se compararon STEM RRL, Biblio-Smart, el modelo de ITC 2019 y la propuesta de CLAB en nueve características, desde la consulta de disponibilidad y las reglas de reserva hasta la arquitectura y la evaluación.
 
 El borrador identifica qué ideas puede aprovechar CLAB y distingue las funciones propuestas de la comunicación entre servicios que ya demuestra el esqueleto. Se comprobó la compilación del documento y la resolución de las citas.
+
+## Carlos Manotoa — 2026-11-20 — Borrador de requisitos no funcionales de E1
+
+Se incorporaron siete requisitos no funcionales en [Carlos.tex](docs/Carlos.tex) y se integraron en la sección de requisitos de [main.tex](docs/main.tex). Cada requisito indica la característica de ISO/IEC 25010:2023, la meta cuantitativa y cómo se comprobará. Las metas tomadas del informe anterior se identificaron por separado de los parámetros de prueba que siguen pendientes de validar con el levantamiento.
+
+Se revisó manualmente las referencias. OpenAI Codex apoyó el filtrado y el cotejo bibliográfico. Se añadieron ocho artículos a [referencias.bib](docs/referencias.bib).

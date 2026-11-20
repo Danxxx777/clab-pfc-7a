@@ -4,7 +4,8 @@
 \usepackage[spanish]{babel}
 \usepackage{csquotes}
 \usepackage[backend=biber,style=ieee,sorting=none,maxbibnames=99]{biblatex}
-\DefineBibliographyStrings{spanish}{artno = {{artículo}{art\adddot}}}
+\DefineBibliographyStrings{spanish}{artno = {art\adddot}}
+\AtBeginBibliography{\setlength{\emergencystretch}{1em}}
 \addbibresource{referencias.bib}
 \usepackage{xurl}
 \usepackage[hidelinks]{hyperref}
@@ -16,13 +17,11 @@
 \CarlosTrabajosRelacionados
 
 \section{Requisitos}
-% Los requisitos funcionales se incorporan aquí al integrar el documento.
+% Punto 6 de la guía: insertar primero los requisitos funcionales del equipo.
 \CarlosRequisitosNoFuncionales
 
 \CarlosRiesgosTecnicos
 
-% Vista previa de las cinco fichas. Retirar al incorporar las citas en el texto.
-\nocite{gilVera2024,garciaGranja2022,muller2025,rihm2024,oakley2025}
 \printbibliography[heading=bibnumbered,title={Referencias}]
 
 \end{document}
