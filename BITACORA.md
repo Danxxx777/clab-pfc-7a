@@ -1,5 +1,11 @@
 # Bitácora de CLAB
 
+## 2026-11-19 - Actualización del runtime a Java 25
+
+- Se actualizó la configuración Maven activa y el backend heredado a Java 25.
+- Spring Boot se llevó de 3.2.1 a la versión compatible 3.5.16 en ambos módulos Maven.
+- Se mantuvieron las pruebas existentes y el comportamiento de los servicios sin cambios en el código de aplicación.
+
 ## 2026-11-18 - Organización del código base y esqueleto de E1
 
 - Participación registrada en esta sesión de chat de Codex. Byron Daniel Loor Mendoza solicitó preparar el esqueleto y guardar el código heredado en una carpeta para organizar la apertura del repositorio en el editor.
