@@ -137,11 +137,169 @@
 % Punto 6 de la guía, dentro de la sección de requisitos del equipo.
 \newcommand{\CarlosRequisitosNoFuncionales}{%
   \subsection{Requisitos no funcionales}
-  % Escribe aquí los requisitos no funcionales.
+
+  Estos requisitos describen cómo deberá comportarse la versión distribuida de
+  CLAB cuando estén implementadas las funciones que se evalúan. Se clasifican
+  según el modelo de calidad de
+  \href{https://www.iso.org/standard/78176.html}{ISO/IEC 25010:2023}.
+  Los 50 usuarios concurrentes, los 2 segundos y el 99\,\% de disponibilidad
+  proceden del informe previo de CLAB. La configuración de las pruebas y los
+  demás umbrales son propuestas que el equipo deberá validar con el
+  levantamiento de información.
+
+  \paragraph{RNF-01. Tiempo de respuesta (eficiencia de desempeño).}
+  Durante 10 minutos de carga estable con 50 usuarios virtuales concurrentes,
+  al menos el 95\,\% de las consultas válidas de disponibilidad deberá
+  devolver el resultado correcto en menos de 2 segundos. La medición se
+  realizará desde el cliente de prueba y el cálculo incluirá todas las
+  consultas emitidas, contando las respuestas erróneas y los tiempos de
+  espera agotados como incumplimientos. Para repetir la prueba se registrarán
+  la configuración del entorno, los datos de la agenda y el perfil de carga.
+  El uso de percentiles bajo distintos niveles de concurrencia se apoya en
+  \cite{pantelic2026Carga}.
+
+  \paragraph{RNF-02. Disponibilidad de la agenda (fiabilidad).}
+  Durante dos semanas, dentro del horario académico acordado con la UTEQ, al
+  menos el 99\,\% de las comprobaciones programadas de disponibilidad deberá
+  devolver un resultado correcto antes de agotar un tiempo de espera de
+  5 segundos. Una sonda externa al servicio ejecutará una consulta por minuto
+  con una cuenta de prueba autorizada. La tasa se calculará dividiendo las
+  comprobaciones exitosas por las programadas en la ventana de observación.
+  Se toma como referencia el uso de comprobaciones externas para medir la
+  disponibilidad \cite{mulahuwaish2022Disponibilidad}.
+
+  \paragraph{RNF-03. Autorización de operaciones (seguridad).}
+  En el 100\,\% de los casos de prueba de confirmación, cancelación y bloqueo,
+  la operación deberá quedar sin ejecutar si el usuario carece del permiso,
+  la sesión se ha revocado o el servicio de Identidad no puede verificar la
+  autorización. Se probará cada operación en esas tres condiciones y se
+  comprobará, además de la respuesta, que el estado de la agenda se conserve.
+  Los estudios sobre control de acceso y revocación sustentan la verificación
+  de estos escenarios
+  \cite{venckauskas2023Autorizacion,rasori2024Revocacion}.
+
+  \paragraph{RNF-04. Interfaz en escritorio y móvil (capacidad de interacción).}
+  Una persona con permisos deberá poder completar la consulta de disponibilidad
+  y el envío de una solicitud en las seis combinaciones de Chrome, Firefox y
+  Edge con anchos de pantalla de 360 y 1280 píxeles. En cada combinación
+  deberán poder utilizarse los controles necesarios de ambos flujos sin
+  desplazamiento horizontal de la página. La prueba registrará la versión
+  de cada navegador y el resultado de los dos flujos para cada ancho.
+  La evaluación en distintas configuraciones se apoya en el estudio de
+  incompatibilidades de presentación \cite{watanabe2023Interfaz}.
+
+  \paragraph{RNF-05. Instalación institucional (flexibilidad).}
+  El 100\,\% de los servicios incluidos en la versión evaluada deberá poder
+  desplegarse en un entorno limpio, con los prerrequisitos documentados,
+  equivalente al entorno institucional. Una vez instalados los servicios,
+  la prueba deberá completar una consulta de disponibilidad y confirmar una
+  reserva con el acceso a servicios de nube pública deshabilitado.
+  El procedimiento toma como referencia la instalación local reproducible
+  de una aplicación de microservicios \cite{simoes2026Despliegue}.
+
+  \paragraph{RNF-06. Continuidad ante la caída de Avisos (fiabilidad).}
+  Con Información y Avisos detenido y las dependencias de la agenda operativas,
+  las 10 solicitudes válidas de la prueba, cada una para una franja libre
+  diferente, deberán confirmarse y quedar guardadas en Reservas y Agenda.
+  Se comprobará la confirmación y la persistencia de cada solicitud antes
+  de restablecer el servicio detenido. Este escenario aplica la evaluación
+  mediante fallos inducidos a una dependencia concreta de CLAB
+  \cite{alSaidAhmad2024Fallos}.
+
+  \paragraph{RNF-07. Trazabilidad de cambios de agenda (seguridad).}
+  El 100\,\% de las confirmaciones, cancelaciones y bloqueos exitosos del
+  conjunto de prueba deberá tener un registro de auditoría en el servicio
+  de origen. El registro deberá contener el identificador de la operación,
+  el usuario, la acción y la fecha y hora. Se cotejará cada cambio con su
+  registro tanto con la vista central de auditoría activa como durante su
+  caída. Los datos del registro se apoyan en el modelo de trazabilidad de
+  eventos de \cite{lopezPimentel2022Auditoria}.
 }
 
 % Punto 12 de la guía.
 \newcommand{\CarlosRiesgosTecnicos}{%
   \section{Análisis de riesgos}
-  % Escribe aquí el análisis de riesgos técnicos.
+
+  El \href{https://github.com/ereinosov/app-dist-form-ac-01/blob/fccfe3f42f0cfa3c405825c4c642b5a5cbfa052b/FORM-AC-01/main.pdf}{informe de FORM-AC-01}
+  analiza la caída de Amazon S3 en la región US-EAST-1 del 28 de febrero de
+  2017. El \href{https://aws.amazon.com/message/41926/}{informe oficial de AWS}
+  documenta tres lecciones que se aplican a CLAB: limitar el alcance de las
+  operaciones de mantenimiento, mantener disponible un canal para comunicar
+  incidentes y ensayar la recuperación de los componentes críticos. Los
+  primeros tres riesgos derivan de ese caso. Los dos restantes surgen de la
+  arquitectura propuesta en ADR-001.
+
+  La valoración es cualitativa y corresponde al escenario previo a aplicar
+  las mitigaciones. La probabilidad se considera media cuando el escenario
+  puede surgir en tareas habituales de mantenimiento, uso o recuperación,
+  y baja cuando requiere un fallo excepcional. El impacto es alto si se
+  interrumpe la agenda o se compromete la integridad de sus datos. Se considera
+  medio si se afecta el diagnóstico o la información secundaria y la agenda
+  conserva sus datos. Las verificaciones se proponen para un entorno de
+  pruebas con datos de prueba.
+
+  \paragraph{R-01. Bloqueo de la agenda por una operación de mantenimiento.}
+  En S3, un parámetro incorrecto permitió retirar más capacidad de la
+  prevista. La tabla~2 de FORM-AC-01 traslada esta lección a CLAB: una
+  operación de mantenimiento que retenga bloqueos en PostgreSQL podría
+  agotar las conexiones de Reservas y Agenda. \textbf{Probabilidad media}
+  por la ejecución prevista de tareas de mantenimiento.
+  \textbf{Impacto alto} porque se podrían interrumpir las consultas y
+  confirmaciones. La mitigación consiste en separar las credenciales de
+  la aplicación y de mantenimiento, limitar los permisos y el alcance de
+  cada operación, y acotar las esperas por bloqueos y conexiones. Para
+  verificarla se mantendrá un bloqueo controlado en la base de pruebas.
+  Se comprobará que la API devuelva un error dentro del límite configurado,
+  que la solicitud afectada no quede confirmada y que las consultas se
+  recuperen al liberar el bloqueo.
+
+  \paragraph{R-02. Pérdida del canal de estado durante una caída.}
+  La consola que permitía actualizar el panel de estado de AWS dependía
+  del propio S3. En CLAB, si la detección y la comunicación de incidentes
+  dependieran de la misma base que usa la agenda, el equipo podría perder
+  ambas al mismo tiempo. \textbf{Probabilidad media} por la posibilidad de
+  compartir infraestructura. \textbf{Impacto medio} porque retrasaría el
+  diagnóstico y el aviso a los usuarios. La mitigación es ejecutar la sonda
+  de RNF-02 desde fuera de la aplicación y acordar un canal institucional
+  de aviso que pueda usarse durante la caída. Se verificará deteniendo
+  PostgreSQL en el entorno de pruebas y comprobando que la sonda registre
+  la indisponibilidad y que el aviso pueda emitirse por el canal alterno.
+
+  \paragraph{R-03. Recuperación lenta o incompleta de la agenda.}
+  En S3, el reinicio completo y la validación de metadatos tardaron más
+  de lo previsto. En CLAB, una recuperación completa de PostgreSQL podría
+  tardar más de lo esperado o devolver una agenda que requiera comprobaciones
+  adicionales. \textbf{Probabilidad baja} porque el escenario requiere
+  una interrupción que obligue a recuperar el almacén completo.
+  \textbf{Impacto alto} por la posible interrupción prolongada de las
+  confirmaciones. La mitigación es ensayar el procedimiento de recuperación
+  y verificar la agenda antes de habilitar de nuevo las escrituras. Se
+  restaurará una copia conocida, se medirá el tiempo hasta recuperar una
+  consulta y una confirmación correctas, y se cotejarán las reservas y
+  bloqueos recuperados con los datos esperados de esa copia.
+
+  \paragraph{R-04. Confirmación de reservas superpuestas.}
+  Si dos solicitudes concurrentes validan la misma franja antes de que
+  se guarde la primera, ambas podrían confirmarse. \textbf{Probabilidad
+  media} porque varios usuarios pueden solicitar el mismo laboratorio.
+  \textbf{Impacto alto} porque se asignaría un espacio a actividades
+  incompatibles. Según ADR-001, Reservas y Agenda debe serializar las
+  modificaciones por laboratorio y verificar los solapamientos dentro de
+  la misma transacción que guarda el cambio. Se enviarán dos solicitudes
+  válidas para el mismo laboratorio y franja, y se comprobará que quede
+  una sola reserva confirmada. Se repetirá la prueba con una reserva frente
+  a un bloqueo para comprobar que no queden ambos vigentes.
+
+  \paragraph{R-05. Avisos omitidos o duplicados al recuperar el servicio.}
+  Si Información y Avisos se detiene mientras consulta los cambios de la
+  agenda, podría omitir un evento pendiente o procesarlo dos veces al
+  reiniciar. \textbf{Probabilidad media} porque una interrupción puede
+  coincidir con el procesamiento. \textbf{Impacto medio} porque los
+  usuarios podrían recibir avisos repetidos o consultar una vista de
+  auditoría incompleta. La mitigación propuesta en ADR-001 consiste en
+  conservar un registro durable en el servicio de origen, guardar el
+  avance del consumidor y deduplicar por origen e identificador. Se
+  detendrá Información y Avisos, se confirmarán reservas durante el corte
+  y, al reanudarlo, se comprobará que cada evento pendiente se refleje
+  una sola vez. La prueba complementa RNF-06 y RNF-07.
 }

@@ -1,0 +1,543 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{gilVera2024}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=2aa43dc3df9bc62db61333a44173f10d}{%
+           family={Gil\bibnamedelima Vera},
+           familyi={G\bibinitperiod\bibinitdelim V\bibinitperiod},
+           given={Rubén},
+           giveni={R\bibinitperiod}}}%
+        {{hash=e65391afe53ab44de08761d34ef5c229}{%
+           family={Lázaro\bibnamedelima Galilea},
+           familyi={L\bibinitperiod\bibinitdelim G\bibinitperiod},
+           given={José\bibnamedelima Luis},
+           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=abc61c1ed8f686eacf6352915b5027d8}{%
+           family={Gardel\bibnamedelima Vicente},
+           familyi={G\bibinitperiod\bibinitdelim V\bibinitperiod},
+           given={Alfredo},
+           giveni={A\bibinitperiod}}}%
+        {{hash=467e1d971b819b3aac84f55c324a134e}{%
+           family={De-La-Llana-Calvo},
+           familyi={D\bibinithyphendelim L\bibinithyphendelim L\bibinithyphendelim C\bibinitperiod},
+           given={Álvaro},
+           giveni={Á\bibinitperiod}}}%
+        {{hash=d70698f7dd193f768fadfa00e9caa107}{%
+           family={Bravo\bibnamedelima Muñoz},
+           familyi={B\bibinitperiod\bibinitdelim M\bibinitperiod},
+           given={Ignacio},
+           giveni={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{18e3933c08fb505040b6dd5587ad5eb2}
+      \strng{fullhash}{7cf0e8e27a528b66fcdfad008457f81e}
+      \strng{fullhashraw}{7cf0e8e27a528b66fcdfad008457f81e}
+      \strng{bibnamehash}{7cf0e8e27a528b66fcdfad008457f81e}
+      \strng{authorbibnamehash}{7cf0e8e27a528b66fcdfad008457f81e}
+      \strng{authornamehash}{18e3933c08fb505040b6dd5587ad5eb2}
+      \strng{authorfullhash}{7cf0e8e27a528b66fcdfad008457f81e}
+      \strng{authorfullhashraw}{7cf0e8e27a528b66fcdfad008457f81e}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{24}
+      \field{journaltitle}{IEEE Access}
+      \field{month}{1}
+      \field{title}{A Flexible Framework for the Deployment of {STEM} Real Remote Laboratories in Digital Electronics and Control Systems}
+      \field{volume}{12}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \field{pages}{14563\bibrangedash 14579}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1109/ACCESS.2024.3357991
+      \endverb
+    \endentry
+    \entry{garciaGranja2022}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=f12903af3478ac5217692deb89aa1683}{%
+           family={García-Granja},
+           familyi={G\bibinithyphendelim G\bibinitperiod},
+           given={M.\bibnamedelimi J.},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=ef87ce8c100454ecfa14dbabf75dd3a9}{%
+           family={Blázquez-Parra},
+           familyi={B\bibinithyphendelim P\bibinitperiod},
+           given={E.\bibnamedelimi B.},
+           giveni={E\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=37f24062461737f28e0f17967b50bc96}{%
+           family={Cimadomo},
+           familyi={C\bibinitperiod},
+           given={Guido},
+           giveni={G\bibinitperiod}}}%
+        {{hash=3f086ecc281f8794ce72b2749e636229}{%
+           family={Guzmán-Navarro},
+           familyi={G\bibinithyphendelim N\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{ee4860cab9b2a8ac888d747b70b1bdea}
+      \strng{fullhash}{39080c5dffb7d002f3e6da518828c3ef}
+      \strng{fullhashraw}{39080c5dffb7d002f3e6da518828c3ef}
+      \strng{bibnamehash}{39080c5dffb7d002f3e6da518828c3ef}
+      \strng{authorbibnamehash}{39080c5dffb7d002f3e6da518828c3ef}
+      \strng{authornamehash}{ee4860cab9b2a8ac888d747b70b1bdea}
+      \strng{authorfullhash}{39080c5dffb7d002f3e6da518828c3ef}
+      \strng{authorfullhashraw}{39080c5dffb7d002f3e6da518828c3ef}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{25}
+      \field{eid}{1786}
+      \field{journaltitle}{Buildings}
+      \field{month}{10}
+      \field{number}{11}
+      \field{title}{Development of an Innovative Seat Reservation System for University Buildings Based on {BIM} Technology}
+      \field{volume}{12}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \verb{doi}
+      \verb 10.3390/buildings12111786
+      \endverb
+    \endentry
+    \entry{muller2025}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=2509fbc57a63611d0d8b9cc5773fbc02}{%
+           family={Müller},
+           familyi={M\bibinitperiod},
+           given={Tomáš},
+           giveni={T\bibinitperiod}}}%
+        {{hash=cc922a5e3eb5af497393506026b57672}{%
+           family={Rudová},
+           familyi={R\bibinitperiod},
+           given={Hana},
+           giveni={H\bibinitperiod}}}%
+        {{hash=d988110cf126b4d7cfad2488c98b2d84}{%
+           family={Müllerová},
+           familyi={M\bibinitperiod},
+           given={Zuzana},
+           giveni={Z\bibinitperiod}}}%
+      }
+      \strng{namehash}{4a337c0f007ec5da19ad808eebc88efd}
+      \strng{fullhash}{0f826afd2c174ae76ba4acbf33c85076}
+      \strng{fullhashraw}{0f826afd2c174ae76ba4acbf33c85076}
+      \strng{bibnamehash}{0f826afd2c174ae76ba4acbf33c85076}
+      \strng{authorbibnamehash}{0f826afd2c174ae76ba4acbf33c85076}
+      \strng{authornamehash}{4a337c0f007ec5da19ad808eebc88efd}
+      \strng{authorfullhash}{0f826afd2c174ae76ba4acbf33c85076}
+      \strng{authorfullhashraw}{0f826afd2c174ae76ba4acbf33c85076}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Scheduling}
+      \field{month}{4}
+      \field{number}{2}
+      \field{title}{Real-world university course timetabling at the {International Timetabling Competition 2019}}
+      \field{volume}{28}
+      \field{year}{2025}
+      \field{dateera}{ce}
+      \field{pages}{247\bibrangedash 267}
+      \range{pages}{21}
+      \verb{doi}
+      \verb 10.1007/s10951-023-00801-w
+      \endverb
+    \endentry
+    \entry{pantelic2026Carga}{article}{}{}
+      \name{author}{7}{}{%
+        {{hash=bb985c154e31f2bb6da308d35b67162c}{%
+           family={Pantelic},
+           familyi={P\bibinitperiod},
+           given={Nenad},
+           giveni={N\bibinitperiod}}}%
+        {{hash=5b1d815d5f6e85281d138543c6951761}{%
+           family={Matic},
+           familyi={M\bibinitperiod},
+           given={Ljiljana},
+           giveni={L\bibinitperiod}}}%
+        {{hash=621e23db57d9ef2363099755294a6409}{%
+           family={Jakovljevic},
+           familyi={J\bibinitperiod},
+           given={Lazar},
+           giveni={L\bibinitperiod}}}%
+        {{hash=fe3ab7fb74a9d6c8289569e620f70f33}{%
+           family={Eric},
+           familyi={E\bibinitperiod},
+           given={Stefan},
+           giveni={S\bibinitperiod}}}%
+        {{hash=84eee371e610d241ceaf82e043be1aab}{%
+           family={Eric},
+           familyi={E\bibinitperiod},
+           given={Milan},
+           giveni={M\bibinitperiod}}}%
+        {{hash=1162130edae9fb7af70645105b90e5c5}{%
+           family={Stefanović},
+           familyi={S\bibinitperiod},
+           given={Miladin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=2eee34a3b47b1a3861200db8def43a55}{%
+           family={Djordjevic},
+           familyi={D\bibinitperiod},
+           given={Aleksandar},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{63bf4996c8d7094132e28fcb1bb5e1dc}
+      \strng{fullhash}{381c82ba73265c33e546f0eaa60b54c2}
+      \strng{fullhashraw}{381c82ba73265c33e546f0eaa60b54c2}
+      \strng{bibnamehash}{381c82ba73265c33e546f0eaa60b54c2}
+      \strng{authorbibnamehash}{381c82ba73265c33e546f0eaa60b54c2}
+      \strng{authornamehash}{63bf4996c8d7094132e28fcb1bb5e1dc}
+      \strng{authorfullhash}{381c82ba73265c33e546f0eaa60b54c2}
+      \strng{authorfullhashraw}{381c82ba73265c33e546f0eaa60b54c2}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{15}
+      \field{eid}{53}
+      \field{journaltitle}{Future Internet}
+      \field{month}{1}
+      \field{number}{1}
+      \field{title}{Benchmarking {SQL} and {NoSQL} Persistence in Microservices Under Variable Workloads}
+      \field{volume}{18}
+      \field{year}{2026}
+      \field{dateera}{ce}
+      \verb{doi}
+      \verb 10.3390/fi18010053
+      \endverb
+    \endentry
+    \entry{mulahuwaish2022Disponibilidad}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=c37690389476c35852152adb661b95ef}{%
+           family={Mulahuwaish},
+           familyi={M\bibinitperiod},
+           given={Aos},
+           giveni={A\bibinitperiod}}}%
+        {{hash=4cf8ca7a6b8aeef51d658b855d3316da}{%
+           family={Korbel},
+           familyi={K\bibinitperiod},
+           given={Shane},
+           giveni={S\bibinitperiod}}}%
+        {{hash=cbb95efe5970586c22b5021a08fea67c}{%
+           family={Qolomany},
+           familyi={Q\bibinitperiod},
+           given={Basheer},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{7816b48862de988ffe1625fa27216496}
+      \strng{fullhash}{6278475245189b93ee0773053b515c81}
+      \strng{fullhashraw}{6278475245189b93ee0773053b515c81}
+      \strng{bibnamehash}{6278475245189b93ee0773053b515c81}
+      \strng{authorbibnamehash}{6278475245189b93ee0773053b515c81}
+      \strng{authornamehash}{7816b48862de988ffe1625fa27216496}
+      \strng{authorfullhash}{6278475245189b93ee0773053b515c81}
+      \strng{authorfullhashraw}{6278475245189b93ee0773053b515c81}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{15}
+      \field{eid}{44}
+      \field{journaltitle}{Journal of Cloud Computing}
+      \field{month}{9}
+      \field{number}{1}
+      \field{title}{Improving datacenter utilization through containerized service-based architecture}
+      \field{volume}{11}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \verb{doi}
+      \verb 10.1186/s13677-022-00319-0
+      \endverb
+    \endentry
+    \entry{venckauskas2023Autorizacion}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=32c1408987e853ce1c03e89a0967a3f0}{%
+           family={Venčkauskas},
+           familyi={V\bibinitperiod},
+           given={Algimantas},
+           giveni={A\bibinitperiod}}}%
+        {{hash=cf160c0fdda77df775ff09dfc2df2d6b}{%
+           family={Kukta},
+           familyi={K\bibinitperiod},
+           given={Donatas},
+           giveni={D\bibinitperiod}}}%
+        {{hash=614d1bbe0946db226b9a0a79d1a5b732}{%
+           family={Grigaliūnas},
+           familyi={G\bibinitperiod},
+           given={Šarūnas},
+           giveni={Š\bibinitperiod}}}%
+        {{hash=fbae0be420a6f10bcedfd31dfdfd46bb}{%
+           family={Brūzgienė},
+           familyi={B\bibinitperiod},
+           given={Rasa},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{aec4fc226dad19fc659af7c998255f3f}
+      \strng{fullhash}{b6b78ca846dbddf89510f09c9a9acc41}
+      \strng{fullhashraw}{b6b78ca846dbddf89510f09c9a9acc41}
+      \strng{bibnamehash}{b6b78ca846dbddf89510f09c9a9acc41}
+      \strng{authorbibnamehash}{b6b78ca846dbddf89510f09c9a9acc41}
+      \strng{authornamehash}{aec4fc226dad19fc659af7c998255f3f}
+      \strng{authorfullhash}{b6b78ca846dbddf89510f09c9a9acc41}
+      \strng{authorfullhashraw}{b6b78ca846dbddf89510f09c9a9acc41}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{22}
+      \field{eid}{3363}
+      \field{journaltitle}{Sensors}
+      \field{month}{3}
+      \field{number}{6}
+      \field{title}{Enhancing Microservices Security with Token-Based Access Control Method}
+      \field{volume}{23}
+      \field{year}{2023}
+      \field{dateera}{ce}
+      \verb{doi}
+      \verb 10.3390/s23063363
+      \endverb
+    \endentry
+    \entry{rasori2024Revocacion}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=81272e40c83acc09c799bacb6fad4e82}{%
+           family={Rasori},
+           familyi={R\bibinitperiod},
+           given={Marco},
+           giveni={M\bibinitperiod}}}%
+        {{hash=93355bebb1c475310fb8d79b6e36ca50}{%
+           family={Saracino},
+           familyi={S\bibinitperiod},
+           given={Andrea},
+           giveni={A\bibinitperiod}}}%
+        {{hash=04d60b7bb04efceb1729048aec7b71f1}{%
+           family={Mori},
+           familyi={M\bibinitperiod},
+           given={Paolo},
+           giveni={P\bibinitperiod}}}%
+        {{hash=c1d0e9f2ab30f119743a5b818f019b5c}{%
+           family={Tiloca},
+           familyi={T\bibinitperiod},
+           given={Marco},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{14d5009cb53d85739e8f59d03da882c3}
+      \strng{fullhash}{bfa103c57333f7ed6032d3b4c5235b48}
+      \strng{fullhashraw}{bfa103c57333f7ed6032d3b4c5235b48}
+      \strng{bibnamehash}{bfa103c57333f7ed6032d3b4c5235b48}
+      \strng{authorbibnamehash}{bfa103c57333f7ed6032d3b4c5235b48}
+      \strng{authornamehash}{14d5009cb53d85739e8f59d03da882c3}
+      \strng{authorfullhash}{bfa103c57333f7ed6032d3b4c5235b48}
+      \strng{authorfullhashraw}{bfa103c57333f7ed6032d3b4c5235b48}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Information Security}
+      \field{month}{10}
+      \field{number}{5}
+      \field{title}{Using the {ACE} framework to enforce access and usage control with notifications of revoked access rights}
+      \field{volume}{23}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \field{pages}{3109\bibrangedash 3133}
+      \range{pages}{25}
+      \verb{doi}
+      \verb 10.1007/s10207-024-00877-1
+      \endverb
+    \endentry
+    \entry{watanabe2023Interfaz}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=1d285b6f728e5c83cff99a1b47c4ad1b}{%
+           family={Watanabe},
+           familyi={W\bibinitperiod},
+           given={Willian\bibnamedelima Massami},
+           giveni={W\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=96130c8fd24a63ac1040ddb26fe0926b}{%
+           family={Santos},
+           familyi={S\bibinitperiod},
+           given={Danilo\bibnamedelima Alves},
+           giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod},
+           prefix={dos},
+           prefixi={d\bibinitperiod}}}%
+        {{hash=f344525b74527b03c37479c0661f6bc7}{%
+           family={Oliveira},
+           familyi={O\bibinitperiod},
+           given={Claiton},
+           giveni={C\bibinitperiod},
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+      }
+      \strng{namehash}{e1b89be6b8855328d21ef202efb2b5b1}
+      \strng{fullhash}{e73fe41b37abab6dd415fe15206ca107}
+      \strng{fullhashraw}{e73fe41b37abab6dd415fe15206ca107}
+      \strng{bibnamehash}{e73fe41b37abab6dd415fe15206ca107}
+      \strng{authorbibnamehash}{e73fe41b37abab6dd415fe15206ca107}
+      \strng{authornamehash}{e1b89be6b8855328d21ef202efb2b5b1}
+      \strng{authorfullhash}{e73fe41b37abab6dd415fe15206ca107}
+      \strng{authorfullhashraw}{e73fe41b37abab6dd415fe15206ca107}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eid}{32}
+      \field{journaltitle}{ACM Transactions on the Web}
+      \field{month}{11}
+      \field{number}{4}
+      \field{title}{Layout Cross-Browser Failure Classification for Mobile Responsive Design Web Applications: Combining Classification Models Using Feature Selection}
+      \field{volume}{17}
+      \field{year}{2023}
+      \field{dateera}{ce}
+      \field{pages}{1\bibrangedash 34}
+      \range{pages}{34}
+      \verb{doi}
+      \verb 10.1145/3580518
+      \endverb
+    \endentry
+    \entry{simoes2026Despliegue}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=3e372b999741c67f886b4d94aa0bf51e}{%
+           family={Simões},
+           familyi={S\bibinitperiod},
+           given={Tiago},
+           giveni={T\bibinitperiod}}}%
+        {{hash=f67df70133f331de9801210bc2c5698b}{%
+           family={Araújo},
+           familyi={A\bibinitperiod},
+           given={Filipe},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{ad9474ef14c0d0a09f873876b2a3c00e}
+      \strng{fullhash}{ad9474ef14c0d0a09f873876b2a3c00e}
+      \strng{fullhashraw}{ad9474ef14c0d0a09f873876b2a3c00e}
+      \strng{bibnamehash}{ad9474ef14c0d0a09f873876b2a3c00e}
+      \strng{authorbibnamehash}{ad9474ef14c0d0a09f873876b2a3c00e}
+      \strng{authornamehash}{ad9474ef14c0d0a09f873876b2a3c00e}
+      \strng{authorfullhash}{ad9474ef14c0d0a09f873876b2a3c00e}
+      \strng{authorfullhashraw}{ad9474ef14c0d0a09f873876b2a3c00e}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{17}
+      \field{eid}{16}
+      \field{journaltitle}{International Journal of Networked and Distributed Computing}
+      \field{month}{4}
+      \field{number}{1}
+      \field{title}{A Representative, Low-Cost, and Easy-to-Deploy Microservices Application for Research Purposes}
+      \field{volume}{14}
+      \field{year}{2026}
+      \field{dateera}{ce}
+      \verb{doi}
+      \verb 10.1007/s44227-025-00065-0
+      \endverb
+    \endentry
+    \entry{alSaidAhmad2024Fallos}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=1f620e775e35a82ee4e78d59a83645a8}{%
+           family={Al-Said\bibnamedelima Ahmad},
+           familyi={A\bibinithyphendelim S\bibinitperiod\bibinitdelim A\bibinitperiod},
+           given={Amro},
+           giveni={A\bibinitperiod}}}%
+        {{hash=4b7ea6f3ec0e0d0d298b6219eff4ba6e}{%
+           family={Al-Qora’n},
+           familyi={A\bibinithyphendelim Q\bibinitperiod},
+           given={Lamis\bibnamedelima F.},
+           giveni={L\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=deed0a6cbcb5d61d8cce7ebf18444bb0}{%
+           family={Zayed},
+           familyi={Z\bibinitperiod},
+           given={Ahmad},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{858eb3db304930d5a25b28b44775324d}
+      \strng{fullhash}{33b46d5cb7aca70b5a0044b42b936279}
+      \strng{fullhashraw}{33b46d5cb7aca70b5a0044b42b936279}
+      \strng{bibnamehash}{33b46d5cb7aca70b5a0044b42b936279}
+      \strng{authorbibnamehash}{33b46d5cb7aca70b5a0044b42b936279}
+      \strng{authornamehash}{858eb3db304930d5a25b28b44775324d}
+      \strng{authorfullhash}{33b46d5cb7aca70b5a0044b42b936279}
+      \strng{authorfullhashraw}{33b46d5cb7aca70b5a0044b42b936279}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computing}
+      \field{month}{7}
+      \field{number}{7}
+      \field{title}{Exploring the impact of chaos engineering with various user loads on cloud native applications: an exploratory empirical study}
+      \field{volume}{106}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \field{pages}{2389\bibrangedash 2425}
+      \range{pages}{37}
+      \verb{doi}
+      \verb 10.1007/s00607-024-01292-z
+      \endverb
+    \endentry
+    \entry{lopezPimentel2022Auditoria}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=3028d75e3da17db83ececc7a53fdf814}{%
+           family={López-Pimentel},
+           familyi={L\bibinithyphendelim P\bibinitperiod},
+           given={Juan\bibnamedelima Carlos},
+           giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=610059c7b63a361678d27e7b26333907}{%
+           family={Morales-Rosales},
+           familyi={M\bibinithyphendelim R\bibinitperiod},
+           given={Luis\bibnamedelima Alberto},
+           giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=602059af8ab4bffcdcd7465c2019dba4}{%
+           family={Algredo-Badillo},
+           familyi={A\bibinithyphendelim B\bibinitperiod},
+           given={Ignacio},
+           giveni={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{31190c25043faaf540dd5a8a6f6ee9f0}
+      \strng{fullhash}{aa62b3a7e1140d42b8f4da04b2e823a4}
+      \strng{fullhashraw}{aa62b3a7e1140d42b8f4da04b2e823a4}
+      \strng{bibnamehash}{aa62b3a7e1140d42b8f4da04b2e823a4}
+      \strng{authorbibnamehash}{aa62b3a7e1140d42b8f4da04b2e823a4}
+      \strng{authornamehash}{31190c25043faaf540dd5a8a6f6ee9f0}
+      \strng{authorfullhash}{aa62b3a7e1140d42b8f4da04b2e823a4}
+      \strng{authorfullhashraw}{aa62b3a7e1140d42b8f4da04b2e823a4}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{7}
+      \field{eid}{2754}
+      \field{journaltitle}{Applied Sciences}
+      \field{month}{3}
+      \field{number}{5}
+      \field{title}{A Cloud Microservices Architecture for Data Integrity Verifiability Based on Blockchain}
+      \field{volume}{12}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \verb{doi}
+      \verb 10.3390/app12052754
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

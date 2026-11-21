@@ -32,3 +32,23 @@ Responsable de Calidad: Carlos Manotoa. Tiempo estimado de la actividad: 4 horas
 Se incorporó a [Carlos.tex](docs/Carlos.tex) un primer borrador del punto 5, sujeto a revisión y cambios. Se compararon STEM RRL, Biblio-Smart, el modelo de ITC 2019 y la propuesta de CLAB en nueve características, desde la consulta de disponibilidad y las reglas de reserva hasta la arquitectura y la evaluación.
 
 El borrador identifica qué ideas puede aprovechar CLAB y distingue las funciones propuestas de la comunicación entre servicios que ya demuestra el esqueleto. Se comprobó la compilación del documento y la resolución de las citas.
+
+## Carlos Manotoa — 2026-11-20 — Borrador de requisitos no funcionales de E1
+
+Se incorporaron siete requisitos no funcionales en [Carlos.tex](docs/Carlos.tex) y se integraron en la sección de requisitos de [main.tex](docs/main.tex). Cada requisito indica la característica de ISO/IEC 25010:2023, la meta cuantitativa y cómo se comprobará. Las metas tomadas del informe anterior se identificaron por separado de los parámetros de prueba que siguen pendientes de validar con el levantamiento.
+
+Se revisó manualmente las referencias. OpenAI Codex apoyó el filtrado y el cotejo bibliográfico. Se añadieron ocho artículos a [referencias.bib](docs/referencias.bib).
+
+## 2026-11-20 - Análisis de riesgos técnicos de E1
+
+Se incorporó el análisis de riesgos en [Carlos.tex](docs/Carlos.tex). Se documentaron cinco riesgos técnicos, tres derivados del caso de Amazon S3 analizado en FORM-AC-01 y dos de la arquitectura propuesta para CLAB. Para cada riesgo se definieron la probabilidad, el impacto, la medida de mitigación y una prueba propuesta. Se verificó la compilación del documento.
+
+## 2026-11-20 - Propuesta inicial de requisitos funcionales
+
+Se incorporaron en la sección de requisitos de `docs/main.tex` cuatro propuestas: consulta de disponibilidad (RF-P01), solicitud de reserva (RF-P02), cancelación de reserva propia (RF-P03) y actualización del catálogo de laboratorios (RF-P04). Cada propuesta identifica el actor, la operación y un criterio de aceptación.
+
+Las propuestas se basan en los actores y flujos descritos en el contexto C4 y en la documentación actual de CLAB. Su aceptación por el equipo, las reglas de negocio y la ejecución de los criterios siguen pendientes.
+
+Byron Daniel Loor Mendoza solicitó incorporar requisitos provisionales para revisarlos al final. OpenAI Codex (GPT-6) redactó las propuestas y esta entrada e integró el cambio en LaTeX. Esta intervención corresponde a asistencia de IA en documentación preliminar.
+
+Se regeneró `docs/main.pdf` y se revisaron la compilación, la resolución de citas y la presentación de los requisitos.
