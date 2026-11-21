@@ -1,0 +1,55 @@
+% Borrador para revisión de Juliana e integración posterior en main.tex.
+% Para resolver las citas, agregar \addbibresource{arquitectura/fuentes-arquitectura.bib}.
+\subsection{Análisis CAP y PACELC por dato crítico}
+\label{sec:clab-cap-pacelc}
+
+CAP formaliza la imposibilidad de garantizar simultáneamente consistencia
+atómica y disponibilidad cuando una partición impide la comunicación entre
+nodos \cite{clabGilbertLynchCAP}. PACELC añade la decisión entre latencia y
+consistencia durante la operación sin particiones \cite{clabAbadiPACELC2012}.
+En CLAB se evalúan operaciones concretas de la arquitectura propuesta en
+ADR-001. La agenda, el catálogo y los permisos tienen un servicio propietario.
+Las copias de consulta se concentran en Información y Avisos.
+
+\paragraph{Ocupación por laboratorio e intervalo.}
+Reservas y Agenda decide la ocupación y registra reservas y bloqueos en su
+almacén. Durante una partición, si la operación pierde acceso a la agenda
+autoritativa o a una validación requerida de Laboratorios, se rechaza o queda
+sin confirmar. Así se evita decidir sobre una copia que pueda mostrar libre
+un intervalo ya ocupado. Sin partición, comprobar solapamientos y serializar
+escrituras por laboratorio agrega espera bajo concurrencia. Se prioriza la
+integridad de la agenda y se conserva la comprobación dentro de la transacción.
+Si se replica la agenda, el diseño de replicación debe preservar un único orden
+de confirmación incluso al cambiar el nodo responsable.
+
+\paragraph{Usuarios activos, sesiones y permisos.}
+Identidad y Académico es la fuente de autorización. Durante una partición con
+Identidad, la operación protegida no se ejecuta si su autorización no puede
+verificarse. Proteger el efecto de las revocaciones tiene prioridad sobre
+atender esa solicitud. Sin partición, la verificación remota agrega una llamada
+al camino de la petición y acorta la ventana de uso de permisos revocados frente
+a una copia con caducidad. Sigue siendo necesario definir qué ocurre si una
+revocación coincide con una operación ya autorizada.
+
+\paragraph{Datos de reportes y avisos.}
+Información y Avisos mantiene proyecciones derivadas del registro durable de
+cambios. Si se interrumpe la comunicación con un origen, pueden continuar las
+lecturas de la última proyección mientras su almacén y la autorización estén
+disponibles. Debe indicarse hasta qué momento se procesaron los cambios. Sin
+partición, consultar la proyección local evita esperar por todos los orígenes a
+cambio de un retraso de actualización. Cuando se recupere la comunicación, el
+consumidor debe reanudar desde su cursor y deduplicar para evitar efectos
+repetidos.
+
+\paragraph{Verificación pendiente.}
+En E1, el controlador de Reservas responde HTTP~503 al fallar la consulta a
+Laboratorios. La política de confirmación y la actualización de proyecciones
+corresponden a incrementos posteriores. Para comprobarlas, el equipo deberá
+enviar dos solicitudes simultáneas para un mismo intervalo, interrumpir la
+comunicación con Identidad durante una solicitud protegida y detener el consumo
+de cambios para medir cuánto tarda la proyección en recuperarse. Conviene
+registrar la latencia de autorización y confirmación bajo carga y el retraso de
+la proyección durante la operación normal.
+
+% Asistencia de IA. OpenAI Codex preparó este borrador con el ADR-001 y el
+% controlador de E1. Las políticas propuestas requieren revisión de Juliana.
