@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber main"] 1795209928.64804 "main.bcf" "main.bbl" "main" 1795209933.3705 0
-  "main.bcf" 1795209933.31375 110476 a18b2c753fc4633fbf1c3daf5f2d7a96 "pdflatex"
-  "referencias.bib" 1795209631.14729 7364 8977315a65a9bd8e5d0ff255e6bd19ae ""
+["biber main"] 1795209928.64804 "main.bcf" "main.bbl" "main" 1795226095.4665 0
+  "main.bcf" 1795226095.40777 110476 a18b2c753fc4633fbf1c3daf5f2d7a96 "pdflatex"
+  "referencias.bib" 1795210358.45942 7364 8977315a65a9bd8e5d0ff255e6bd19ae ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1795209932.33573 "/home/carlos/Documentos/Septimo A/Aplicaciones Distribuidas/TA-PFC-E1/clab-pfc-7a/docs/main.tex" "main.pdf" "main" 1795209933.37077 0
-  "/home/carlos/Documentos/Septimo A/Aplicaciones Distribuidas/TA-PFC-E1/clab-pfc-7a/docs/main.tex" 1795209927.05972 689 8dec6f5fa73851c5c03d2c153bd698b7 ""
+["pdflatex"] 1795226094.36002 "/home/carlos/Documentos/Septimo A/Aplicaciones Distribuidas/TA-PFC-E1/clab-pfc-7a/docs/main.tex" "main.pdf" "main" 1795226095.4668 0
+  "/home/carlos/Documentos/Septimo A/Aplicaciones Distribuidas/TA-PFC-E1/clab-pfc-7a/docs/main.tex" 1795210891.82772 1321 3dd2f2ac12fe7de5cab23cefbb85b202 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1775415801 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1775415801 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1775415801 3584 402da0b29eafbad07963b1224b222f18 ""
@@ -97,12 +97,12 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1775415801 43569 fd570f2fa160877d211e859f687312ba ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1794000489 5385779 47c0c393a77fd4a098bacfd57d66b88a ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1794001996 3113348 df0b4c5fba0b01141b09ef512f3f944b ""
-  "Carlos.tex" 1795209927.05872 13086 f46ebc81dae0ad3420e26b12e0cc5a1a ""
-  "main.aux" 1795209933.30975 6882 ed54dfcf8f982e36f97dac2f70bbd3dc "pdflatex"
+  "Carlos.tex" 1795226092.85076 18518 8f3b24b2547ffddf49310e2e5ecfc552 ""
+  "main.aux" 1795226095.40377 7713 74ffb20f33f827934c41f0f9ca572c83 "pdflatex"
   "main.bbl" 1795209929.93928 22052 866072e1a86b1aee75f461ef9c846cbc "biber main"
-  "main.out" 1795209933.31275 2611 b7d959eb60b0cfa56a3e20bc8f4cbd63 "pdflatex"
-  "main.run.xml" 1795209933.31517 2403 32cea650c9ebd3f2e00948b23bd8ea16 "pdflatex"
-  "main.tex" 1795209927.05972 689 8dec6f5fa73851c5c03d2c153bd698b7 ""
+  "main.out" 1795226095.40677 2782 ec456acca87ed4085d53ed7513a85a43 "pdflatex"
+  "main.run.xml" 1795226095.40945 2403 32cea650c9ebd3f2e00948b23bd8ea16 "pdflatex"
+  "main.tex" 1795210891.82772 1321 3dd2f2ac12fe7de5cab23cefbb85b202 ""
   (generated)
   "main.aux"
   "main.bcf"

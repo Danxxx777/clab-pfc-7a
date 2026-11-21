@@ -219,5 +219,87 @@
 % Punto 12 de la guía.
 \newcommand{\CarlosRiesgosTecnicos}{%
   \section{Análisis de riesgos}
-  % Escribe aquí el análisis de riesgos técnicos.
+
+  El \href{https://github.com/ereinosov/app-dist-form-ac-01/blob/fccfe3f42f0cfa3c405825c4c642b5a5cbfa052b/FORM-AC-01/main.pdf}{informe de FORM-AC-01}
+  analiza la caída de Amazon S3 en la región US-EAST-1 del 28 de febrero de
+  2017. El \href{https://aws.amazon.com/message/41926/}{informe oficial de AWS}
+  documenta tres lecciones que se aplican a CLAB: limitar el alcance de las
+  operaciones de mantenimiento, mantener disponible un canal para comunicar
+  incidentes y ensayar la recuperación de los componentes críticos. Los
+  primeros tres riesgos derivan de ese caso. Los dos restantes surgen de la
+  arquitectura propuesta en ADR-001.
+
+  La valoración es cualitativa y corresponde al escenario previo a aplicar
+  las mitigaciones. La probabilidad se considera media cuando el escenario
+  puede surgir en tareas habituales de mantenimiento, uso o recuperación,
+  y baja cuando requiere un fallo excepcional. El impacto es alto si se
+  interrumpe la agenda o se compromete la integridad de sus datos. Se considera
+  medio si se afecta el diagnóstico o la información secundaria y la agenda
+  conserva sus datos. Las verificaciones se proponen para un entorno de
+  pruebas con datos de prueba.
+
+  \paragraph{R-01. Bloqueo de la agenda por una operación de mantenimiento.}
+  En S3, un parámetro incorrecto permitió retirar más capacidad de la
+  prevista. La tabla~2 de FORM-AC-01 traslada esta lección a CLAB: una
+  operación de mantenimiento que retenga bloqueos en PostgreSQL podría
+  agotar las conexiones de Reservas y Agenda. \textbf{Probabilidad media}
+  por la ejecución prevista de tareas de mantenimiento.
+  \textbf{Impacto alto} porque se podrían interrumpir las consultas y
+  confirmaciones. La mitigación consiste en separar las credenciales de
+  la aplicación y de mantenimiento, limitar los permisos y el alcance de
+  cada operación, y acotar las esperas por bloqueos y conexiones. Para
+  verificarla se mantendrá un bloqueo controlado en la base de pruebas.
+  Se comprobará que la API devuelva un error dentro del límite configurado,
+  que la solicitud afectada no quede confirmada y que las consultas se
+  recuperen al liberar el bloqueo.
+
+  \paragraph{R-02. Pérdida del canal de estado durante una caída.}
+  La consola que permitía actualizar el panel de estado de AWS dependía
+  del propio S3. En CLAB, si la detección y la comunicación de incidentes
+  dependieran de la misma base que usa la agenda, el equipo podría perder
+  ambas al mismo tiempo. \textbf{Probabilidad media} por la posibilidad de
+  compartir infraestructura. \textbf{Impacto medio} porque retrasaría el
+  diagnóstico y el aviso a los usuarios. La mitigación es ejecutar la sonda
+  de RNF-02 desde fuera de la aplicación y acordar un canal institucional
+  de aviso que pueda usarse durante la caída. Se verificará deteniendo
+  PostgreSQL en el entorno de pruebas y comprobando que la sonda registre
+  la indisponibilidad y que el aviso pueda emitirse por el canal alterno.
+
+  \paragraph{R-03. Recuperación lenta o incompleta de la agenda.}
+  En S3, el reinicio completo y la validación de metadatos tardaron más
+  de lo previsto. En CLAB, una recuperación completa de PostgreSQL podría
+  tardar más de lo esperado o devolver una agenda que requiera comprobaciones
+  adicionales. \textbf{Probabilidad baja} porque el escenario requiere
+  una interrupción que obligue a recuperar el almacén completo.
+  \textbf{Impacto alto} por la posible interrupción prolongada de las
+  confirmaciones. La mitigación es ensayar el procedimiento de recuperación
+  y verificar la agenda antes de habilitar de nuevo las escrituras. Se
+  restaurará una copia conocida, se medirá el tiempo hasta recuperar una
+  consulta y una confirmación correctas, y se cotejarán las reservas y
+  bloqueos recuperados con los datos esperados de esa copia.
+
+  \paragraph{R-04. Confirmación de reservas superpuestas.}
+  Si dos solicitudes concurrentes validan la misma franja antes de que
+  se guarde la primera, ambas podrían confirmarse. \textbf{Probabilidad
+  media} porque varios usuarios pueden solicitar el mismo laboratorio.
+  \textbf{Impacto alto} porque se asignaría un espacio a actividades
+  incompatibles. Según ADR-001, Reservas y Agenda debe serializar las
+  modificaciones por laboratorio y verificar los solapamientos dentro de
+  la misma transacción que guarda el cambio. Se enviarán dos solicitudes
+  válidas para el mismo laboratorio y franja, y se comprobará que quede
+  una sola reserva confirmada. Se repetirá la prueba con una reserva frente
+  a un bloqueo para comprobar que no queden ambos vigentes.
+
+  \paragraph{R-05. Avisos omitidos o duplicados al recuperar el servicio.}
+  Si Información y Avisos se detiene mientras consulta los cambios de la
+  agenda, podría omitir un evento pendiente o procesarlo dos veces al
+  reiniciar. \textbf{Probabilidad media} porque una interrupción puede
+  coincidir con el procesamiento. \textbf{Impacto medio} porque los
+  usuarios podrían recibir avisos repetidos o consultar una vista de
+  auditoría incompleta. La mitigación propuesta en ADR-001 consiste en
+  conservar un registro durable en el servicio de origen, guardar el
+  avance del consumidor y deduplicar por origen e identificador. Se
+  detendrá Información y Avisos, se confirmarán reservas durante el corte
+  y, al reanudarlo, se comprobará que cada evento pendiente se refleje
+  una sola vez. La prueba complementa RNF-06 y RNF-07.
 }

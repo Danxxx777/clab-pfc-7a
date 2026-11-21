@@ -38,3 +38,7 @@ El borrador identifica qué ideas puede aprovechar CLAB y distingue las funcione
 Se incorporaron siete requisitos no funcionales en [Carlos.tex](docs/Carlos.tex) y se integraron en la sección de requisitos de [main.tex](docs/main.tex). Cada requisito indica la característica de ISO/IEC 25010:2023, la meta cuantitativa y cómo se comprobará. Las metas tomadas del informe anterior se identificaron por separado de los parámetros de prueba que siguen pendientes de validar con el levantamiento.
 
 Se revisó manualmente las referencias. OpenAI Codex apoyó el filtrado y el cotejo bibliográfico. Se añadieron ocho artículos a [referencias.bib](docs/referencias.bib).
+
+## 2026-11-20 - Análisis de riesgos técnicos de E1
+
+Se incorporó el análisis de riesgos en [Carlos.tex](docs/Carlos.tex). Se documentaron cinco riesgos técnicos, tres derivados del caso de Amazon S3 analizado en FORM-AC-01 y dos de la arquitectura propuesta para CLAB. Para cada riesgo se definieron la probabilidad, el impacto, la medida de mitigación y una prueba propuesta. Se verificó la compilación del documento.
