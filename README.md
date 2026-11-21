@@ -21,6 +21,13 @@ clab-pfc-7a/
 
 El código de semestres anteriores se consulta en [Clab--Sistema](https://github.com/Danxxx777/Clab--Sistema). Esta copia conserva el trabajo del equipo de PFC desde noviembre de 2026; el código heredado se retiró de sus archivos y del historial de `main`. Se mantiene la procedencia del proyecto.
 
+El [informe original de CLAB](evidencias/antecedentes/CLAB-informe-original-2026.pdf)
+se conserva como antecedente documental. Sus páginas 14 y 15 contienen los
+dieciséis requisitos de origen, las páginas 19 y 20 describen el diagnóstico
+y las páginas 45 a 47 incluyen la guía de entrevistas y una fotografía.
+El acta firmada o el audio consentido que exige la guía vigente siguen
+pendientes de incorporación.
+
 Abre la raíz del repositorio en el editor. En IntelliJ IDEA, importa el `pom.xml` de la raíz como proyecto Maven. Este archivo incluye los dos módulos de `/src/`.
 
 ## Requisitos de ejecución

@@ -53,6 +53,12 @@ Byron Daniel Loor Mendoza solicitó incorporar requisitos provisionales para rev
 
 Se regeneró `docs/main.pdf` y se revisaron la compilación, la resolución de citas y la presentación de los requisitos.
 
+## 2026-11-21 - Conservación del antecedente de CLAB
+
+Byron Daniel Loor Mendoza proporcionó el informe original de CLAB de 54 páginas. OpenAI Codex (familia de modelos GPT-6) conservó una copia íntegra en `evidencias/antecedentes/CLAB-informe-original-2026.pdf` y comprobó que su SHA-256 coincide con el archivo recibido.
+
+El documento contiene dieciséis requisitos en las páginas 14 y 15, diagnóstico en las páginas 19 y 20, un cuestionario en las páginas 45 y 46 y una fotografía de entrevista en la página 47. Se registró su referencia bibliográfica y su ubicación en el README. El acta con nombre, cargo, fecha y firma o el audio con consentimiento siguen pendientes de incorporación para completar la evidencia primaria exigida en E1.
+
 ## 2026-11-21 - Limpieza del código e historial heredados
 
 Por solicitud de Byron, Codex retiró el código heredado del repositorio del PFC y preparó el historial de `main` desde noviembre de 2026. Se conservaron los 24 commits existentes del equipo actual, incluidos los dos últimos aportes de Roger, con sus autores, fechas y mensajes originales. La reescritura cambió sus identificadores y se actualizaron las referencias documentales. El esqueleto de E1 en `src/` se conservó sin cambios.
