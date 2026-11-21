@@ -59,6 +59,12 @@ Byron Daniel Loor Mendoza proporcionó el informe original de CLAB de 54 página
 
 El documento contiene dieciséis requisitos en las páginas 14 y 15, diagnóstico en las páginas 19 y 20, un cuestionario en las páginas 45 y 46 y una fotografía de entrevista en la página 47. Se registró su referencia bibliográfica y su ubicación en el README. El acta con nombre, cargo, fecha y firma o el audio con consentimiento siguen pendientes de incorporación para completar la evidencia primaria exigida en E1.
 
+## 2026-11-21 - Avance documental del bloque de Documentación
+
+En la misma sesión de trabajo, Byron solicitó avanzar en su bloque de E1 a partir del informe original. Codex adaptó el resumen ejecutivo de 341 palabras y el contexto, documentó los interesados, propuso cinco objetivos específicos con indicadores y convirtió los dieciséis requisitos originales en historias de usuario con criterios de aceptación.
+
+Estos textos reemplazan los cuatro requisitos preliminares y conservan la trazabilidad a los RF del informe original. La asistencia de IA se declaró en el documento. Se regeneró el PDF y se revisaron la compilación, la resolución de citas y la presentación. La validación con el registro primario del levantamiento y los datos completos de la portada continúan pendientes.
+
 ## 2026-11-21 - Limpieza del código e historial heredados
 
 Por solicitud de Byron, Codex retiró el código heredado del repositorio del PFC y preparó el historial de `main` desde noviembre de 2026. Se conservaron los 24 commits existentes del equipo actual, incluidos los dos últimos aportes de Roger, con sus autores, fechas y mensajes originales. La reescritura cambió sus identificadores y se actualizaron las referencias documentales. El esqueleto de E1 en `src/` se conservó sin cambios.
