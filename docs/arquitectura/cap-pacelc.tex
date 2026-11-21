@@ -1,55 +1,164 @@
-% Borrador para revisión de Juliana e integración posterior en main.tex.
-% Para resolver las citas, agregar \addbibresource{arquitectura/fuentes-arquitectura.bib}.
-\subsection{Análisis CAP y PACELC por dato crítico}
+% !TeX root = ../main.tex
+% Base: borrador de JulianaEmanuel, commit d1906dd. Se conservan sus políticas,
+% la etiqueta original y la referencia clabAbadiPACELC2012; se amplía el análisis.
+% Asistencia del borrador base: OpenAI Codex. Ampliación: OpenAI GPT-6.1 Sol.
+\section{Análisis CAP y PACELC}
+\label{sec:clab-cap}
 \label{sec:clab-cap-pacelc}
 
-CAP formaliza la imposibilidad de garantizar simultáneamente consistencia
-atómica y disponibilidad cuando una partición impide la comunicación entre
-nodos \cite{clabGilbertLynchCAP}. PACELC añade la decisión entre latencia y
-consistencia durante la operación sin particiones \cite{clabAbadiPACELC2012}.
-En CLAB se evalúan operaciones concretas de la arquitectura propuesta en
-ADR-001. La agenda, el catálogo y los permisos tienen un servicio propietario.
-Las copias de consulta se concentran en Información y Avisos.
+CAP expresa que, bajo una partición, no se pueden garantizar simultáneamente
+consistencia linealizable y respuesta satisfactoria para todas las solicitudes
+dirigidas a nodos no fallidos\cite{clabGilbertLynchCAP}. Su disponibilidad no es
+el porcentaje mensual de disponibilidad de un requisito no funcional. Tampoco
+la consistencia de CAP equivale simplemente a las restricciones de integridad
+de ACID. PACELC añade el compromiso, cuando no hay partición, entre latencia y
+consistencia\cite{clabAbadiPACELC2012,clabAbadiPACELC}.
 
-\paragraph{Ocupación por laboratorio e intervalo.}
-Reservas y Agenda decide la ocupación y registra reservas y bloqueos en su
-almacén. Durante una partición, si la operación pierde acceso a la agenda
-autoritativa o a una validación requerida de Laboratorios, se rechaza o queda
-sin confirmar. Así se evita decidir sobre una copia que pueda mostrar libre
-un intervalo ya ocupado. Sin partición, comprobar solapamientos y serializar
-escrituras por laboratorio agrega espera bajo concurrencia. Se prioriza la
-integridad de la agenda y se conserva la comprobación dentro de la transacción.
-Si se replica la agenda, el diseño de replicación debe preservar un único orden
-de confirmación incluso al cambiar el nodo responsable.
+CLAB todavía no tiene replicación de negocio en el esqueleto de E1. Por eso no
+se etiqueta PostgreSQL ni todo el sistema como ``CP'' o ``AP'' por su nombre.
+Se especifican políticas objetivo por operación: \textbf{PC/EC} prefiere
+consistencia bajo partición y también en operación normal; \textbf{PA/EL} permite
+lecturas de una proyección local potencialmente atrasada y prioriza la latencia.
+La segunda política solo mantiene lectura en los nodos que tengan una copia
+accesible; no promete disponibilidad universal ni escritura multimaestro.
 
-\paragraph{Usuarios activos, sesiones y permisos.}
-Identidad y Académico es la fuente de autorización. Durante una partición con
-Identidad, la operación protegida no se ejecuta si su autorización no puede
-verificarse. Proteger el efecto de las revocaciones tiene prioridad sobre
-atender esa solicitud. Sin partición, la verificación remota agrega una llamada
-al camino de la petición y acorta la ventana de uso de permisos revocados frente
-a una copia con caducidad. Sigue siendo necesario definir qué ocurre si una
-revocación coincide con una operación ya autorizada.
+\subsection{Relación con los requisitos E1}
 
-\paragraph{Datos de reportes y avisos.}
-Información y Avisos mantiene proyecciones derivadas del registro durable de
-cambios. Si se interrumpe la comunicación con un origen, pueden continuar las
-lecturas de la última proyección mientras su almacén y la autorización estén
-disponibles. Debe indicarse hasta qué momento se procesaron los cambios. Sin
-partición, consultar la proyección local evita esperar por todos los orígenes a
-cambio de un retraso de actualización. Cuando se recupere la comunicación, el
-consumidor debe reanudar desde su cursor y deduplicar para evitar efectos
-repetidos.
+Se emplean los identificadores actuales de \texttt{main.tex} y
+\texttt{Carlos.tex}, revisados en \texttt{a2ecc7d}. RF-P02 exige como máximo
+una confirmación ante dos solicitudes simultáneas para el mismo laboratorio
+y horario. RNF-03 exige impedir cambios si no hay permiso verificable, si la
+sesión está revocada o si Identidad no puede verificarla. Ambos orientan la
+preferencia por consistencia en el camino de confirmación.
 
-\paragraph{Verificación pendiente.}
-En E1, el controlador de Reservas responde HTTP~503 al fallar la consulta a
-Laboratorios. La política de confirmación y la actualización de proyecciones
-corresponden a incrementos posteriores. Para comprobarlas, el equipo deberá
-enviar dos solicitudes simultáneas para un mismo intervalo, interrumpir la
-comunicación con Identidad durante una solicitud protegida y detener el consumo
-de cambios para medir cuánto tarda la proyección en recuperarse. Conviene
-registrar la latencia de autorización y confirmación bajo carga y el retraso de
-la proyección durante la operación normal.
+RNF-01 propone al menos el 95\,\% de consultas válidas de disponibilidad
+correctas en menos de 2 segundos durante 10 minutos con 50 usuarios concurrentes.
+RNF-02 propone al menos el 99\,\% de comprobaciones correctas dentro de 5 segundos,
+con una sonda por minuto durante dos semanas de horario académico. Son metas
+de evaluación, no valores medidos ni garantías deducidas de CAP. RNF-06 y
+RNF-07 requieren confirmar y persistir las reservas de prueba con Avisos detenido
+y mantener auditoría fuente de todos los cambios exitosos, respectivamente.
 
-% Asistencia de IA. OpenAI Codex preparó este borrador con el ADR-001 y el
-% controlador de E1. Las políticas propuestas requieren revisión de Juliana.
+\subsection{Reservas y bloqueos de agenda: PC/EC}
+
+\textbf{Dato e invariante.} El servicio Reservas es la única autoridad de
+ocupación: dos reservas confirmadas no pueden solaparse para el mismo laboratorio;
+un bloqueo confirmado impide nuevas reservas dentro de su intervalo. Un bloqueo
+que afecta reservas existentes debe registrar las afectaciones en la misma
+transacción. El catálogo de Laboratorios no es una segunda agenda.
+
+\textbf{Con partición.} Si el solicitante no llega a la autoridad de agenda o
+esta no puede confirmar sus dependencias de autorización y catálogo, no recibe
+una confirmación nueva. No se aceptan reservas sin conexión para fusionarlas
+después: el usuario debe reintentar y puede perder el horario. Un calendario
+almacenado previamente, si se muestra, es informativo y no concede el intervalo.
+
+\textbf{Sin partición.} La confirmación espera la transacción autoritativa.
+Se propone serializar por laboratorio todas las reservas, bloqueos, cancelaciones
+y recurrencias mediante un bloqueo de fila estable. Intervalos contiguos
+se interpretan como $[inicio,fin)$: se permite que uno termine cuando comienza
+el siguiente. Se sacrifica latencia frente a confirmar desde una copia atrasada.
+La garantía debe probarse con concurrencia, no inferirse de usar
+\texttt{@Transactional}.
+
+\textbf{Recuperación.} Un timeout no prueba que la transacción haya fallado.
+Se propone una clave de idempotencia por solicitud, registrada con la operación,
+y una consulta del resultado antes de reintentar. El diseño de API aún debe
+implementarse; el endpoint de comprobación de E1 no crea reservas.
+
+\subsection{Usuarios activos, roles y permisos: PC/EC}
+
+Identidad es la fuente de verdad de credenciales y autorizaciones. Los otros
+servicios consultan su validación antes de aceptar peticiones protegidas.
+Durante una partición con Identidad se rechaza temporalmente la operación;
+no se presume que un token aún vigente mantenga permisos ya revocados.
+Sin partición se paga una llamada adicional para verificar usuario activo y
+permisos. Sigue pendiente acordar el efecto de una revocación que coincida con
+una operación ya autorizada; no se promete anular retroactivamente una
+transacción confirmada. Esta dependencia reduce disponibilidad y debe incluirse
+en las pruebas y en la estimación del 99\,\% de disponibilidad.
+
+\subsection{Catálogo, equipos e incidencias: autoridad PC/EC}
+
+Laboratorios y Recursos decide actualizaciones de catálogo, estado operativo e
+incidencias. Si no se llega a su almacén autoritativo no se confirman cambios
+ni cierres de incidencias. Sin partición se confirma después de persistir el
+cambio y su auditoría local. Esto impide que dos copias aisladas comuniquen
+estados contradictorios como definitivos. La pérdida de este servicio no borra
+reservas existentes, pero bloquea nuevas confirmaciones que necesiten validar
+el catálogo. El cierre por mantenimiento requiere además un bloqueo de agenda
+confirmado en Reservas; actualizar solamente un campo del catálogo no garantiza
+el cierre del intervalo. No se promete atomicidad entre ambos servicios.
+
+RF-P04 requiere que un laboratorio fuera de servicio no admita reservas nuevas.
+El catálogo puede rechazar la validación si ese estado ya consta al consultar;
+queda pendiente acordar el instante efectivo del cierre cuando una desactivación
+concurre con una confirmación. No se considera resuelta esa carrera por comprobar
+el catálogo antes de insertar. Resolverla requiere precisar la regla con el
+equipo y coordinar la actualización con la autoridad de agenda, sin introducir
+una segunda fuente de ocupación.
+
+\subsection{Asistencia y datos académicos: autoridad PC/EC}
+
+Reservas registra asistencia únicamente para una reserva válida; Identidad y
+Académico mantiene estudiantes, matrículas, periodos y asignaturas. Las escrituras
+requieren acceso al servicio propietario y autorización vigente. Durante una
+partición no se confirma una asistencia o matrícula solo desde el navegador.
+Sin partición se prioriza la persistencia autoritativa sobre responder desde
+una copia local. Una reserva puede conservar una instantánea de sus metadatos
+académicos para explicar el registro histórico, sin convertirla en fuente de
+verdad de matrículas o permisos.
+
+\subsection{Auditoría: fuente PC/EC y vista central PA/EL}
+
+La operación de negocio y su auditoría fuente se guardan en una transacción
+local: si no puede registrarse esa auditoría obligatoria, no se confirma el
+cambio. La copia central en Información y Avisos se alimenta posteriormente.
+Durante una partición entre servicios, la copia central puede seguir mostrando
+los eventos ya recibidos, con su marca de última actualización; no certifica
+que incluya toda la actividad actual. Sin partición se prefiere leer esa
+proyección sin consultar todos los orígenes en cada pantalla. La convergencia
+requiere recuperación de registros durables y deduplicación, no entrega
+``exactamente una vez'' supuesta.
+
+\subsection{Reportes y notificaciones: proyecciones PA/EL}
+
+Información y Avisos puede consultar su copia local aunque no lleguen cambios
+de Reservas o Laboratorios. El usuario verá estadísticas atrasadas o recibirá
+la notificación después; ninguna de esas vistas confirma disponibilidad de
+horarios. En operación normal se conserva la lectura local para reducir latencia.
+El atraso no tiene una cota demostrada: depende de la frecuencia de consulta,
+el volumen pendiente y las interrupciones. Tras restablecer la conexión, se
+reanuda desde cursores persistidos y se deduplican los cambios. Si el propio
+servicio, su almacén o Identidad están inaccesibles, la consulta protegida no
+queda disponible por llamarla PA/EL.
+
+\subsection{Alcance de las garantías y comprobaciones pendientes}
+
+Un único escritor por dominio simplifica la autoridad, pero no es una solución
+de alta disponibilidad. Si en E3 se añaden réplicas para datos críticos, deberán
+definirse replicación, confirmación durable y elección de primario con protección
+contra dos escritores simultáneos; una promoción manual sin verificar ese
+aislamiento no demuestra consistencia. Las políticas anteriores orientan ese
+diseño y no acreditan un protocolo de consenso implementado. La replicación
+debe preservar el orden de confirmación incluso al cambiar el nodo responsable.
+
+La validación prevista debe comprobar: dos solicitudes concurrentes para el
+mismo intervalo; reserva simultánea con bloqueo; pérdida de respuesta tras una
+confirmación; desactivación concurrente de RF-P04; revocación de permisos;
+corte y recuperación de los canales de
+proyección; reinicio del consumidor conservando cursores; y fallo de la
+persistencia de auditoría. Para los intervalos iguales, el criterio propuesto
+es como máximo una confirmación y un resultado explícito para la otra solicitud.
+Para la proyección, el criterio es convergencia sin pérdida ni duplicación
+observable después de recuperar los cambios conservados en el origen.
+
+\paragraph{Estado.}
+Este análisis amplía el borrador incorporado por JulianaEmanuel en el commit
+\texttt{d1906dd}, preparado con OpenAI Codex, conservando sus políticas de agenda,
+autorización y proyecciones y su referencia de PACELC. La ampliación se preparó
+con asistencia de IA (OpenAI, GPT-6.1 Sol) y se contrasta con ADR-001 y los
+contenedores objetivo. No se ejecutaron
+experimentos de partición, concurrencia ni replicación del sistema de negocio
+durante su preparación. Sus efectos deben contrastarse con requisitos trazables
+al levantamiento real y con la implementación posterior.

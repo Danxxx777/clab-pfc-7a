@@ -21,43 +21,53 @@ requiere migrar el sistema completo a una base distribuida durante el periodo.
 No se usa como justificación una supuesta operación multisede, una saturación
 medida o una necesidad de nube pública: ninguna ha sido comprobada.
 
-El antecedente fija menos de 2 segundos por petición REST bajo carga normal,
-50 usuarios concurrentes y disponibilidad mínima del 99\,\% en horario académico.
-Se conservan como metas de partida: faltan definir la mezcla de operaciones,
-el percentil de latencia y la ventana de observación. Separar servicios podría
-permitir escalar consultas e informes sin replicar toda la aplicación, pero
-agrega llamadas de red y no prueba que esas metas se cumplan. La disponibilidad
-debe evaluarse por operación: una consulta de avisos puede fallar sin afectar
-la agenda, mientras que la pérdida de Identidad impedirá autorizar solicitudes
-protegidas. Un único servidor o una única instancia PostgreSQL siguen siendo
-puntos comunes de fallo.
+Los requisitos E1 actuales concretan las metas del antecedente. RNF-01 propone
+que al menos el 95\,\% de las consultas válidas de disponibilidad entregue un
+resultado correcto en menos de 2 segundos, durante 10 minutos de carga estable
+con 50 usuarios concurrentes. Errores y tiempos agotados cuentan como
+incumplimientos. RNF-02 propone que al menos el 99\,\% de las comprobaciones de
+una sonda por minuto sea correcto dentro de 5 segundos, durante dos semanas
+de horario académico acordado. Son umbrales propuestos, no resultados medidos;
+la configuración concreta del entorno y su ejecución deben registrarse.
 
-\subsection{Trazabilidad hacia los requisitos del antecedente}
+Separar servicios podría permitir escalar consultas e informes sin replicar
+toda la aplicación, pero agrega llamadas de red y no prueba esas metas.
+La disponibilidad se evalúa por operación: una caída de Avisos no debe impedir
+persistir reservas válidas, mientras que perder Identidad impide autorizar
+solicitudes protegidas. Un único servidor o una única instancia PostgreSQL
+siguen siendo puntos comunes de fallo.
 
-Los siguientes identificadores pertenecen al documento previo de CLAB; no
-suplantan las historias ni los requisitos de calidad que se aprueben para E1:
+\subsection{Trazabilidad hacia los requisitos E1 actuales}
+
+Se usan los identificadores de la propuesta funcional de \texttt{main.tex}
+y los RNF de \texttt{Carlos.tex}, consultados en la revisión
+\texttt{a2ecc7d}. No se confunden con los identificadores homónimos del informe
+previo, ni se presentan como requisitos ya aprobados o implementados:
 \begin{description}
-  \item[RF-04 a RF-06 y RF-11:] la consulta de disponibilidad, las reservas y
-  los bloqueos se apoyan en una agenda autoritativa. Laboratorios entrega metadatos,
-  pero Reservas decide si un intervalo puede confirmarse.
-  \item[RF-07 a RF-10:] inventario, estado de equipos e incidencias se agrupan
-  en Laboratorios y Recursos para mantener local el historial técnico.
-  \item[RF-13 a RF-15:] reportes, auditoría y avisos admiten una vista central
-  diferida, sin retrasar la confirmación de la agenda; la auditoría fuente se
-  persiste junto con cada modificación.
-  \item[RNF-01 y RNF-09:] los límites previos de menos de 2 segundos y al menos
-  50 usuarios concurrentes orientan pruebas de carga y escalado selectivo.
-  Faltan percentil, mezcla de operaciones y criterio de degradación aceptable;
-  no se da por demostrado que repartir procesos reduzca la latencia.
-  \item[RNF-02:] el 99\,\% de disponibilidad requiere definir horario y ventana
-  de observación. Separar informes puede aislar fallos, pero no elimina la
-  dependencia de Identidad ni la de infraestructura compartida.
-  \item[RNF-03 y RNF-04:] BCrypt, HTTPS y expiración de tokens de hasta 24 horas
-  se conservan como restricciones del antecedente. La verificación de permisos
-  en Identidad evita equiparar vigencia del token con autorización irrevocable.
-  \item[RNF-06:] el despliegue institucional sin nube pública se preserva.
-  La separación lógica no obliga a adquirir infraestructura externa ni supone
-  que varios procesos en un mismo equipo toleren la pérdida de ese equipo.
+  \item[RF-P01 a RF-P03:] la consulta, solicitud y cancelación se apoyan en
+  Reservas como autoridad de ocupación. Laboratorios entrega metadatos y
+  estado; Identidad verifica permisos antes de ejecutar cambios.
+  \item[RF-P04:] el catálogo pertenece a Laboratorios. Un estado fuera de
+  servicio detectado al validar impide una nueva confirmación. Aún debe
+  acordarse el instante efectivo del cierre si la desactivación concurre con
+  una reserva: consultar el catálogo no hace atómica una operación entre dos
+  almacenes. Este punto se registra como pendiente, no como regla ya resuelta.
+  \item[RNF-01 y RNF-02:] orientan pruebas de latencia y disponibilidad sobre
+  consultas de agenda. La separación permite evaluar el escalado selectivo,
+  pero no elimina la dependencia de Identidad o de infraestructura compartida.
+  \item[RNF-03:] confirmar, cancelar o bloquear requiere autorización
+  verificable. Una revocación o pérdida de Identidad no se sustituye por
+  asumir que todo token todavía vigente conserva permisos.
+  \item[RNF-04 y RNF-05:] la SPA debe soportar los flujos y tamaños de pantalla
+  especificados; los servicios deben poder desplegarse sin nube pública.
+  Distribuir no obliga a contratar infraestructura externa.
+  \item[RNF-06:] diez solicitudes válidas de la prueba, para franjas libres
+  diferentes, deben confirmarse y persistirse con Información y Avisos
+  detenido, manteniendo las dependencias de agenda operativas. Los avisos
+  quedan fuera de la transacción crítica de confirmación.
+  \item[RNF-07:] cada cambio exitoso de agenda del conjunto de prueba requiere
+  auditoría en su servicio de origen, incluso si la vista central está caída.
+  La copia diferida no sustituye ese registro local.
 \end{description}
 
 \subsection{Resumen de ADR-001}
