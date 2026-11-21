@@ -2,6 +2,21 @@
 
 CLAB gestiona los laboratorios y sus reservas. Esta base para E1 contiene dos servicios Java independientes que intercambian información mediante HTTP y JSON.
 
+## Integrantes y responsabilidades de E1
+
+- Byron Daniel Loor Mendoza, Responsable de Documentación. [Seguimiento del bloque](https://github.com/Danxxx777/clab-pfc-7a/issues/1).
+- Roger Garcia (`Esteiben`), Arquitecto. [Arquitectura y ADR-001](https://github.com/Danxxx777/clab-pfc-7a/issues/2).
+- Juliana Emanuel Pino (`JulianaEmanuel`), Líder de Desarrollo. [Comunicación, esqueleto y plan técnico](https://github.com/Danxxx777/clab-pfc-7a/issues/3).
+- Carlos Manotoa (`CarlosManotoa007`), Responsable de Calidad. [Calidad y evidencias](https://github.com/Danxxx777/clab-pfc-7a/issues/4).
+
+Las issues se abrieron el 21 de noviembre de 2026 para vincular los aportes
+existentes y seguir los pendientes reales de cada bloque.
+
+El borrador del informe reúne las declaraciones de Carlos y Byron y los
+registros de asistencia presentes en los archivos de Arquitectura y Desarrollo.
+En el registro de CAP/PACELC queda por confirmar la versión concreta del modelo
+y la revisión personal de su responsable.
+
 ## Organización
 
 ```text
@@ -25,8 +40,8 @@ El [informe original de CLAB](evidencias/antecedentes/CLAB-informe-original-2026
 se conserva como antecedente documental. Sus páginas 14 y 15 contienen los
 dieciséis requisitos de origen, las páginas 19 y 20 describen el diagnóstico
 y las páginas 45 a 47 incluyen la guía de entrevistas y una fotografía.
-El acta firmada o el audio consentido que exige la guía vigente siguen
-pendientes de incorporación.
+Las historias de E1 remiten a esos requisitos. El acta firmada o el audio
+consentido que exige la guía vigente siguen pendientes de incorporación.
 
 Abre la raíz del repositorio en el editor. En IntelliJ IDEA, importa el `pom.xml` de la raíz como proyecto Maven. Este archivo incluye los dos módulos de `/src/`.
 
@@ -104,6 +119,29 @@ Get-Date -Format o
 ```
 
 Las capturas de ejecución, el video y la bitácora se elaboran a partir de las sesiones realizadas por los integrantes.
+
+## Compilación del documento de E1
+
+El archivo principal es `docs/main.tex`. Se compila con pdfLaTeX y Biber
+desde la carpeta `docs`. El resultado es `docs/main.pdf`.
+
+```powershell
+Set-Location docs
+pdflatex -interaction=nonstopmode -halt-on-error main.tex
+biber main
+pdflatex -interaction=nonstopmode -halt-on-error main.tex
+pdflatex -interaction=nonstopmode -halt-on-error main.tex
+```
+
+La distribución TeX debe incluir `fontenc`, `babel` con español, `csquotes`,
+`graphicx`, `geometry`, `pdflscape`, `longtable`, `array`, `biblatex` con el estilo
+`ieee`, `xurl` e `hyperref`. Las bibliografías son `docs/referencias.bib` y
+`docs/arquitectura/fuentes-arquitectura.bib`. Las figuras C4 se incluyen desde
+`docs/figuras` y las capturas desde `evidencias`.
+
+El informe integra los aportes disponibles de arquitectura, requisitos y
+calidad, la tabla de aportes y las capturas. La aprobación de las propuestas
+y la integración de los apartados restantes de E1 siguen pendientes.
 
 ## Asistencia de IA
 

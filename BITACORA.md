@@ -65,6 +65,24 @@ En la misma sesión de trabajo, Byron solicitó avanzar en su bloque de E1 a par
 
 Estos textos reemplazan los cuatro requisitos preliminares y conservan la trazabilidad a los RF del informe original. La asistencia de IA se declaró en el documento. Se regeneró el PDF y se revisaron la compilación, la resolución de citas y la presentación. La validación con el registro primario del levantamiento y los datos completos de la portada continúan pendientes.
 
+## 2026-11-21 - Integración de aportes disponibles de E1
+
+Como parte de la misma sesión, Byron solicitó contrastar los aportes de Carlos Manotoa con el repositorio. Codex comprobó los seis commits comunicados por Carlos y la presencia de la comparación de tres estudios, siete requisitos no funcionales, cinco riesgos, tres capturas y su declaración de IA. Las capturas muestran la secuencia HTTP 200, HTTP 503 al detener Laboratorios y HTTP 200 después del reinicio, junto con usuario, equipo y fecha del sistema.
+
+Se conectaron al documento principal los archivos existentes de justificación, C4 y CAP/PACELC, sus figuras y su bibliografía. Se incorporaron la tabla de aportes enlazada a commits, la declaración de asistencia de esta integración y las capturas de Carlos identificadas como tales. Se documentaron en el README la compilación con pdfLaTeX y Biber y las dependencias requeridas.
+
+El problema de integración era que esos archivos de arquitectura estaban versionados, pero `docs/main.tex` no los incluía. Se regeneró `docs/main.pdf`, se comprobaron las citas y los enlaces de la tabla y se revisó la presentación de las figuras, capturas y texto. La consulta a GitHub no encontró issues en el repositorio al corte de esta revisión; su vinculación con la tabla sigue pendiente.
+
+## 2026-11-21 - Portada y vinculación del seguimiento de E1
+
+Se completó la portada con los datos de la asignatura, el proyecto, el periodo, la fecha prevista de entrega y la URL del repositorio. Para Roger se utilizó el nombre público de su registro ORCID enlazado desde GitHub; para Juliana, el nombre que figura en su repositorio académico. Los roles de Arquitectura y Liderazgo de Desarrollo se asignaron según los aportes y responsabilidades observados en el repositorio y requieren confirmación del equipo.
+
+Se crearon las issues 1 a 4, asignadas respectivamente a Danxxx777, Esteiben, JulianaEmanuel y CarlosManotoa007. Las issues describen de forma explícita que los commits enlazados preceden a su creación y conservan abiertos los pendientes de cada rol. Sus enlaces se incorporaron a la tabla de aportes y al README.
+
+Se reunieron en la sección de IA las declaraciones existentes y los registros de asistencia de Arquitectura y CAP/PACELC. El registro de CAP/PACELC no contiene la versión concreta del modelo ni una confirmación de revisión personal; esos datos siguen pendientes del responsable.
+
+Byron indicó aplazar momentáneamente el acta o el audio del levantamiento. Se mantuvieron el informe original, su cuestionario y su fotografía como antecedentes identificados. El requisito del respaldo primario conserva su estado pendiente para la entrega final de E1.
+
 ## 2026-11-21 - Limpieza del código e historial heredados
 
 Por solicitud de Byron, Codex retiró el código heredado del repositorio del PFC y preparó el historial de `main` desde noviembre de 2026. Se conservaron los 24 commits existentes del equipo actual, incluidos los dos últimos aportes de Roger, con sus autores, fechas y mensajes originales. La reescritura cambió sus identificadores y se actualizaron las referencias documentales. El esqueleto de E1 en `src/` se conservó sin cambios.
