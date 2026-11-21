@@ -52,3 +52,9 @@ Las propuestas se basan en los actores y flujos descritos en el contexto C4 y en
 Byron Daniel Loor Mendoza solicitó incorporar requisitos provisionales para revisarlos al final. OpenAI Codex (GPT-6) redactó las propuestas y esta entrada e integró el cambio en LaTeX. Esta intervención corresponde a asistencia de IA en documentación preliminar.
 
 Se regeneró `docs/main.pdf` y se revisaron la compilación, la resolución de citas y la presentación de los requisitos.
+
+## 2026-11-21 - Limpieza del código e historial heredados
+
+Por solicitud de Byron, Codex retiró el código heredado del repositorio del PFC y preparó el historial de `main` desde noviembre de 2026. Se conservaron los 24 commits existentes del equipo actual, incluidos los dos últimos aportes de Roger, con sus autores, fechas y mensajes originales. La reescritura cambió sus identificadores y se actualizaron las referencias documentales. El esqueleto de E1 en `src/` se conservó sin cambios.
+
+Antes de la limpieza se guardaron un respaldo completo del historial y una copia de los cambios locales pendientes, incluido su estado de preparación para commits. La procedencia de CLAB se mantiene mediante el enlace al repositorio original y el informe antecedente. Las entradas anteriores de esta bitácora describen el estado que existía en cada sesión.

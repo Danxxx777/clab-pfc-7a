@@ -6,12 +6,6 @@ CLAB gestiona los laboratorios y sus reservas. Esta base para E1 contiene dos se
 
 ```text
 clab-pfc-7a/
-  legado/                       Código heredado de CLAB
-    backend/Clab-backend/        Backend Spring Boot original
-    frontend/clab-frontend/      Frontend Angular original
-    .idea/                      Configuración del editor del proyecto original
-    package.json                Dependencias del proyecto original
-    package-lock.json
   src/
     servicio-laboratorios/      Servicio que responde la consulta
     servicio-reservas/          Servicio que consulta a Laboratorios
@@ -25,9 +19,9 @@ clab-pfc-7a/
   mvnw.cmd
 ```
 
-El código heredado procede de [Clab--Sistema](https://github.com/Danxxx777/Clab--Sistema), importado en este repositorio antes de E1. Se conserva en `legado/` para consultar y migrar sus componentes durante el PFC. La base de esta reorganización es el commit `5df22c945b82ff962541ebc33a2fa69984cd88b5`.
+El código de semestres anteriores se consulta en [Clab--Sistema](https://github.com/Danxxx777/Clab--Sistema). Esta copia conserva el trabajo del equipo de PFC desde noviembre de 2026; el código heredado se retiró de sus archivos y del historial de `main`. Se mantiene la procedencia del proyecto.
 
-Abre la raíz del repositorio en el editor. En IntelliJ IDEA, importa el `pom.xml` de la raíz como proyecto Maven. Este archivo incluye los dos módulos de `/src/`. En VS Code, la configuración de `java.import.exclusions` excluye `legado/` de la importación automática de proyectos Java. Para trabajar directamente en el sistema heredado, abre la carpeta correspondiente dentro de `legado/` en otra ventana.
+Abre la raíz del repositorio en el editor. En IntelliJ IDEA, importa el `pom.xml` de la raíz como proyecto Maven. Este archivo incluye los dos módulos de `/src/`.
 
 ## Requisitos de ejecución
 

@@ -2,15 +2,15 @@
 
 - Estado: propuesto; pendiente de revisión y aceptación del equipo.
 - Alcance: arquitectura objetivo de CLAB para E1–E4.
-- Base de revisión: rama `main`, commit `81c75c4ee2eb00f812d9a0025379010bb4db4173`.
-- Revisión de coherencia con los requisitos E1 y el borrador CAP/PACELC de JulianaEmanuel: `a2ecc7d14ceeca4587ea271f542b4c5eccd60dcb`.
-- Revisión del protocolo de cierre y reapertura: `88f587d77865872a62cbc63b2b43a68a6ed6d4c8`. El protocolo forma parte de la propuesta; no acredita aceptación colectiva ni implementación.
+- Base de revisión: rama `main`, commit `8cf8f1229853756980eac6b5897ee0aa3234b6bd`.
+- Revisión de coherencia con los requisitos E1 y el borrador CAP/PACELC de JulianaEmanuel: `b212d707c4dd22c2e96f93010a9b4930479a6d38`.
+- Revisión del protocolo de cierre y reapertura: `6e1b5b599bf2fad83dd8e64f4196c680c8e9232d`. El protocolo forma parte de la propuesta; no acredita aceptación colectiva ni implementación.
 
 ## Contexto
 
 CLAB gestiona laboratorios informáticos de la UTEQ. El documento previo describe reservas con conflictos de horario, inventario, incidencias y reportes. Es un antecedente de dominio, no un acta de levantamiento verificable para E1. En la revisión no se dispuso de acta firmada ni grabación consentida. Los requisitos y las prioridades deberán contrastarse con esa evidencia.
 
-El legado conservado en `/legado/` tiene frontend Angular, backend Spring Boot y PostgreSQL. `ReservaRepository` invoca funciones y procedimientos del esquema `reservas`; por tanto, migrar controladores no basta para separar el dominio. El esqueleto de `/src/` contiene dos procesos Spring Boot: Reservas consulta a Laboratorios por REST/JSON y devuelve HTTP 503 ante una dependencia no disponible. No incorpora persistencia ni operaciones de negocio.
+El sistema antecedente, disponible en [Clab--Sistema](https://github.com/Danxxx777/Clab--Sistema), tiene frontend Angular, backend Spring Boot y PostgreSQL. Su código se retiró de esta copia del PFC el 21 de noviembre de 2026. `ReservaRepository` invoca funciones y procedimientos del esquema `reservas`; por tanto, migrar controladores no basta para separar el dominio. El esqueleto de `/src/` contiene dos procesos Spring Boot: Reservas consulta a Laboratorios por REST/JSON y devuelve HTTP 503 ante una dependencia no disponible. No incorpora persistencia ni operaciones de negocio.
 
 El plan académico exige evolucionar hasta un sistema distribuido y migrar el sistema completo durante el periodo. En la revisión E1 actual, RNF-01 concreta la meta de latencia: al menos el 95 % de las consultas válidas de disponibilidad correctas en menos de 2 segundos, durante 10 minutos de carga estable con 50 usuarios concurrentes; errores y tiempos agotados cuentan como incumplimientos. RNF-02 propone al menos el 99 % de comprobaciones correctas dentro de 5 segundos, con una sonda por minuto durante dos semanas de horario académico acordado. Son requisitos propuestos, no mediciones; su validación con usuarios y las pruebas siguen pendientes. No se ha demostrado que un monolito sea insuficiente por volumen o distribución geográfica.
 
