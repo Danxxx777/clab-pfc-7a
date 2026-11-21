@@ -75,6 +75,11 @@ esos entregables.
   autenticación de máquina y reintentos todavía requieren implementación.
   El contrato de cambios debe limitarse a los datos necesarios para cada
   proyección: no debe exponer contraseñas, hashes, tokens ni secretos de sesión.
+  \item[I13:] Laboratorios solicita a Reservas el cierre o la reapertura de
+  la barrera operativa mediante REST/JSON sincrónico, con identificador estable
+  y revisión. Reservas autoriza y persiste el cambio sin volver a llamar a
+  Laboratorios desde este manejador. Ante un resultado desconocido se consulta
+  o reintenta la misma solicitud; no se infiere que haya fallado por un timeout.
   \item[D01--D04:] cada servicio accede únicamente a su propio almacén mediante
   JDBC y SQL, con TLS previsto para conexiones de red. Persistencia y registros
   de cambios durables no están presentes en los dos servicios mínimos de E1.
@@ -85,6 +90,16 @@ escrituras. Si Información está detenido, la agenda debe poder confirmar y
 mantener sus registros locales. Si Laboratorios o Identidad están inaccesibles,
 una nueva reserva que dependa de ellos no se confirma. Esto es aislamiento
 parcial por operación, no disponibilidad total frente a cualquier fallo.
+
+Para RF-P04, Laboratorios solo publica fuera de servicio después de confirmar
+la barrera en Reservas; en caso contrario muestra cierre pendiente. La barrera
+se verifica bajo el mismo bloqueo por laboratorio que cada confirmación de
+reserva. Las reservas previas se conservan, sin cancelación automática ni
+autorización de uso físico del espacio cerrado. Para reabrir, el catálogo pasa
+primero a apertura pendiente, después Reservas retira únicamente su barrera
+operativa y finalmente el catálogo publica activo. Un fallo no debe provocar
+que se anuncie un cierre sin barrera o una reapertura sin confirmación.
+Los estados, revisiones y reintentos de este diseño se detallan en ADR-001.
 
 \subsection{Correspondencia con el esqueleto de E1}
 

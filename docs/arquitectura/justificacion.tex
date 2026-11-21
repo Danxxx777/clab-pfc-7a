@@ -48,10 +48,13 @@ previo, ni se presentan como requisitos ya aprobados o implementados:
   Reservas como autoridad de ocupación. Laboratorios entrega metadatos y
   estado; Identidad verifica permisos antes de ejecutar cambios.
   \item[RF-P04:] el catálogo pertenece a Laboratorios. Un estado fuera de
-  servicio detectado al validar impide una nueva confirmación. Aún debe
-  acordarse el instante efectivo del cierre si la desactivación concurre con
-  una reserva: consultar el catálogo no hace atómica una operación entre dos
-  almacenes. Este punto se registra como pendiente, no como regla ya resuelta.
+  servicio solo se publica después de confirmar una barrera en Reservas. Esa
+  barrera se comprueba bajo el mismo bloqueo que usa cada confirmación, incluso
+  si la consulta previa obtuvo un catálogo activo. El protocolo registra
+  cierre pendiente ante una respuesta desconocida, conserva las reservas
+  existentes y permite reintentos con identificador estable y revisión.
+  No supone una transacción atómica entre almacenes ni una implementación ya
+  disponible; su especificación completa se incorpora en ADR-001.
   \item[RNF-01 y RNF-02:] orientan pruebas de latencia y disponibilidad sobre
   consultas de agenda. La separación permite evaluar el escalado selectivo,
   pero no elimina la dependencia de Identidad o de infraestructura compartida.

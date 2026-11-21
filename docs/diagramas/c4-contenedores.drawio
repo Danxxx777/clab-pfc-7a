@@ -114,6 +114,12 @@
             <mxPoint x="890" y="484" as="targetPoint" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="I13" parent="1" edge="1" source="laboratorios" target="reservas" style="edgeStyle=segmentEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#526273;strokeWidth=2;exitX=0.8095238095238095;exitY=1.0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.8095238095238095;entryY=0.0;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1060" y="484" as="sourcePoint" />
+            <mxPoint x="1060" y="593" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="I10" parent="1" edge="1" source="informacion" target="identidad" style="edgeStyle=segmentEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#526273;strokeWidth=2;exitX=0.0;exitY=0.17293233082706766;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.0;entryY=0.849624060150376;entryDx=0;entryDy=0;entryPerimeter=0;">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="720" y="858" as="sourcePoint" />
@@ -219,28 +225,31 @@
         <mxCell id="text-14" value="I09 · Valida catálogo&#10;REST/JSON · sincrónica" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontFamily=DejaVu Sans;fontSize=19;fontColor=#102b46;fillColor=#ffffff;" vertex="1" parent="1">
           <mxGeometry x="740" y="519" width="262.62" height="56" as="geometry" />
         </mxCell>
-        <mxCell id="text-15" value="I10 · Lee cambios&#10;REST periódico" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontFamily=DejaVu Sans;fontSize=19;fontColor=#102b46;fillColor=#ffffff;" vertex="1" parent="1">
+        <mxCell id="text-15" value="I13 · Cierre / reapertura&#10;REST/JSON · sincrónica" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontFamily=DejaVu Sans;fontSize=19;fontColor=#102b46;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="488" width="296.25" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="text-16" value="I10 · Lee cambios&#10;REST periódico" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontFamily=DejaVu Sans;fontSize=19;fontColor=#102b46;fillColor=#ffffff;" vertex="1" parent="1">
           <mxGeometry x="520" y="258" width="206.57" height="56" as="geometry" />
         </mxCell>
-        <mxCell id="text-16" value="I11 · Lee cambios&#10;REST periódico" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontFamily=DejaVu Sans;fontSize=19;fontColor=#102b46;fillColor=#ffffff;" vertex="1" parent="1">
+        <mxCell id="text-17" value="I11 · Lee cambios&#10;REST periódico" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontFamily=DejaVu Sans;fontSize=19;fontColor=#102b46;fillColor=#ffffff;" vertex="1" parent="1">
           <mxGeometry x="520" y="500" width="206.57" height="56" as="geometry" />
         </mxCell>
-        <mxCell id="text-17" value="I12 · Lee cambios&#10;REST periódico" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontFamily=DejaVu Sans;fontSize=19;fontColor=#102b46;fillColor=#ffffff;" vertex="1" parent="1">
+        <mxCell id="text-18" value="I12 · Lee cambios&#10;REST periódico" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontFamily=DejaVu Sans;fontSize=19;fontColor=#102b46;fillColor=#ffffff;" vertex="1" parent="1">
           <mxGeometry x="520" y="741" width="206.57" height="56" as="geometry" />
         </mxCell>
-        <mxCell id="text-18" value="Límite del sistema CLAB: SPA, cuatro servicios y cuatro almacenes. Personas fuera del sistema." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontFamily=DejaVu Sans;fontSize=20;fontColor=#102b46;" vertex="1" parent="1">
+        <mxCell id="text-19" value="Límite del sistema CLAB: SPA, cuatro servicios y cuatro almacenes. Personas fuera del sistema." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontFamily=DejaVu Sans;fontSize=20;fontColor=#102b46;" vertex="1" parent="1">
           <mxGeometry x="45" y="1014" width="1125.2" height="33" as="geometry" />
         </mxCell>
-        <mxCell id="text-19" value="Todas las cajas claras son propuestas. En E1 solo existen los dos procesos mínimos de /src/, sin base de negocio." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontFamily=DejaVu Sans;fontSize=20;fontColor=#102b46;" vertex="1" parent="1">
+        <mxCell id="text-20" value="Todas las cajas claras son propuestas. En E1 solo existen los dos procesos mínimos de /src/, sin base de negocio." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontFamily=DejaVu Sans;fontSize=20;fontColor=#102b46;" vertex="1" parent="1">
           <mxGeometry x="45" y="1041" width="1349.3999999999999" height="33" as="geometry" />
         </mxCell>
-        <mxCell id="text-20" value="I10–I12: propagación diferida en segundo plano; cada consulta HTTP es sincrónica. Cursor durable y deduplicación." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontFamily=DejaVu Sans;fontSize=20;fontColor=#102b46;" vertex="1" parent="1">
+        <mxCell id="text-21" value="I10–I12: propagación diferida en segundo plano; cada consulta HTTP es sincrónica. Cursor durable y deduplicación." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontFamily=DejaVu Sans;fontSize=20;fontColor=#102b46;" vertex="1" parent="1">
           <mxGeometry x="45" y="1068" width="1349.3999999999999" height="33" as="geometry" />
         </mxCell>
-        <mxCell id="text-21" value="Las flechas indican quién inicia la interacción; las respuestas recorren la misma conexión. No representan un broker." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontFamily=DejaVu Sans;fontSize=20;fontColor=#102b46;" vertex="1" parent="1">
+        <mxCell id="text-22" value="Las flechas indican quién inicia la interacción; las respuestas recorren la misma conexión. No representan un broker." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontFamily=DejaVu Sans;fontSize=20;fontColor=#102b46;" vertex="1" parent="1">
           <mxGeometry x="45" y="1095" width="1396.6" height="33" as="geometry" />
         </mxCell>
-        <mxCell id="text-22" value="Cada almacén es privado. SGA excluido: no hay integración activa. TLS y autorización entre servicios pendientes de implementar." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontFamily=DejaVu Sans;fontSize=20;fontColor=#102b46;" vertex="1" parent="1">
+        <mxCell id="text-23" value="Cada almacén es privado. SGA excluido: no hay integración activa. TLS y autorización entre servicios pendientes de implementar." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontFamily=DejaVu Sans;fontSize=20;fontColor=#102b46;" vertex="1" parent="1">
           <mxGeometry x="45" y="1123" width="1514.6" height="33" as="geometry" />
         </mxCell>
       </root>

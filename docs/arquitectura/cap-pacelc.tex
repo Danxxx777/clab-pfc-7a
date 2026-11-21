@@ -90,13 +90,29 @@ el catálogo. El cierre por mantenimiento requiere además un bloqueo de agenda
 confirmado en Reservas; actualizar solamente un campo del catálogo no garantiza
 el cierre del intervalo. No se promete atomicidad entre ambos servicios.
 
-RF-P04 requiere que un laboratorio fuera de servicio no admita reservas nuevas.
-El catálogo puede rechazar la validación si ese estado ya consta al consultar;
-queda pendiente acordar el instante efectivo del cierre cuando una desactivación
-concurre con una confirmación. No se considera resuelta esa carrera por comprobar
-el catálogo antes de insertar. Resolverla requiere precisar la regla con el
-equipo y coordinar la actualización con la autoridad de agenda, sin introducir
-una segunda fuente de ocupación.
+Para RF-P04 se propone que Laboratorios persista cierre pendiente y solicite
+por I13 una barrera de admisión en Reservas. Solo publica fuera de servicio
+después de confirmar durablemente esa barrera. Cada confirmación de reserva
+la comprueba bajo el mismo bloqueo local, aunque una consulta previa haya leído
+un catálogo activo. Una reserva confirmada antes de la barrera se conserva;
+una confirmación posterior se rechaza. No se cancelan automáticamente reservas
+existentes ni se autoriza con ello el uso físico de un laboratorio cerrado.
+
+Durante una partición, el trámite no se anuncia completado sin confirmación.
+Si la barrera se activó y se perdió la respuesta, el catálogo puede seguir
+pendiente mientras Reservas rechaza nuevas confirmaciones. Se prefiere perder
+disponibilidad antes que reabrir por una compensación insegura. La recuperación
+consulta o reintenta la misma solicitud durable; identificador y revisión
+evitan duplicados y órdenes anteriores aplicadas fuera de secuencia.
+
+La reapertura comienza cambiando el catálogo a apertura pendiente, todavía
+no reservable, y después retira la barrera operativa mediante I13. Solo tras
+confirmar esa revisión publica activo. No retira otros bloqueos de agenda.
+Una respuesta perdida conserva la apertura pendiente, no un retorno automático
+a fuera de servicio con una barrera que pudiera estar retirada. Sin partición
+se acepta la latencia de estas dos confirmaciones locales; no se promete una
+transacción distribuida atómica. El protocolo completo queda en ADR-001 y aún
+debe implementarse y validarse con el equipo.
 
 \subsection{Asistencia y datos académicos: autoridad PC/EC}
 
