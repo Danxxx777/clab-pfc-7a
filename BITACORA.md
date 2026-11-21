@@ -42,3 +42,13 @@ Se revisó manualmente las referencias. OpenAI Codex apoyó el filtrado y el cot
 ## 2026-11-20 - Análisis de riesgos técnicos de E1
 
 Se incorporó el análisis de riesgos en [Carlos.tex](docs/Carlos.tex). Se documentaron cinco riesgos técnicos, tres derivados del caso de Amazon S3 analizado en FORM-AC-01 y dos de la arquitectura propuesta para CLAB. Para cada riesgo se definieron la probabilidad, el impacto, la medida de mitigación y una prueba propuesta. Se verificó la compilación del documento.
+
+## 2026-11-20 - Propuesta inicial de requisitos funcionales
+
+Se incorporaron en la sección de requisitos de `docs/main.tex` cuatro propuestas: consulta de disponibilidad (RF-P01), solicitud de reserva (RF-P02), cancelación de reserva propia (RF-P03) y actualización del catálogo de laboratorios (RF-P04). Cada propuesta identifica el actor, la operación y un criterio de aceptación.
+
+Las propuestas se basan en los actores y flujos descritos en el contexto C4 y en la documentación actual de CLAB. Su aceptación por el equipo, las reglas de negocio y la ejecución de los criterios siguen pendientes.
+
+Byron Daniel Loor Mendoza solicitó incorporar requisitos provisionales para revisarlos al final. OpenAI Codex (GPT-6) redactó las propuestas y esta entrada e integró el cambio en LaTeX. Esta intervención corresponde a asistencia de IA en documentación preliminar.
+
+Se regeneró `docs/main.pdf` y se revisaron la compilación, la resolución de citas y la presentación de los requisitos.

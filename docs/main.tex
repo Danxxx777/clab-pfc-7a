@@ -21,9 +21,46 @@
 
 \section{Requisitos}
 \subsection{Requisitos funcionales}
-% PENDIENTE: integrar los requisitos funcionales acordados por el equipo.
-% Para cada requisito documentar: ID, actor, operación y criterio de aceptación.
-% Evitar presentar funciones del código legado como ya migradas a los servicios.
+La siguiente lista propone un alcance funcional inicial para revisar con el
+equipo. Los actores y operaciones se toman del contexto C4 y de los flujos de
+CLAB descritos en este repositorio. Los criterios de aceptación son propuestas
+de comprobación para el desarrollo posterior.
+
+\begin{description}
+  \item[RF-P01] \textbf{Consultar disponibilidad.}
+  Actor: docente. El sistema permitirá consultar un laboratorio por fecha y
+  franja horaria, diferenciando disponibilidad, reservas y bloqueos.
+  \textbf{Criterio propuesto:} al consultar una franja con una reserva vigente
+  o un bloqueo registrado, el sistema la mostrará como ocupada o bloqueada.
+
+  \item[RF-P02] \textbf{Solicitar una reserva.}
+  Actor: docente. El sistema permitirá solicitar una reserva indicando
+  laboratorio, fecha, inicio, fin y actividad. Reservas comprobará los permisos,
+  la existencia del laboratorio y los conflictos de horario antes de confirmar.
+  \textbf{Criterio propuesto:} ante dos solicitudes simultáneas para el mismo
+  laboratorio y horario, se confirmará como máximo una. Si una dependencia
+  requerida está inaccesible, la solicitud no quedará confirmada.
+
+  \item[RF-P03] \textbf{Cancelar una reserva propia.}
+  Actor: docente. El sistema permitirá cancelar una reserva propia que aún
+  no haya comenzado, conservando el registro de la cancelación.
+  \textbf{Criterio propuesto:} una reserva cancelada dejará de ocupar la
+  franja. Un docente no podrá cancelar una reserva de otro docente.
+
+  \item[RF-P04] \textbf{Actualizar el catálogo de laboratorios.}
+  Actor: administrador de laboratorio. El sistema permitirá actualizar
+  capacidad, recursos y estado operativo de los laboratorios.
+  \textbf{Criterio propuesto:} un laboratorio marcado como fuera de servicio
+  no admitirá nuevas reservas. La actualización requerirá permisos de
+  administración de laboratorio.
+\end{description}
+
+\paragraph{Estado y asistencia.}
+Esta propuesta preliminar se redactó con asistencia de OpenAI Codex (GPT-6) a petición
+de Byron Daniel Loor Mendoza. Su aprobación por el equipo, las reglas de negocio
+y la ejecución de los criterios propuestos quedan pendientes. El esqueleto
+actual demuestra la comunicación HTTP entre dos servicios. Estas operaciones
+funcionales corresponden al alcance propuesto.
 
 \CarlosRequisitosNoFuncionales
 
