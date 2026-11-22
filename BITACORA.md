@@ -126,3 +126,7 @@ Durante la comprobación final se incorporó el commit `040854a` de Roger, con e
 Carlos Manotoa indicó que el equipo presentará el cuestionario respondido, documentado y autorizado como respaldo escrito de la entrevista. Otro integrante del equipo lo incorporará en `evidencias/`. La incorporación queda pendiente a nivel grupal.
 
 Para verificar el respaldo frente a la guía de E1, queda pendiente comprobar que el documento registre la fecha de la entrevista, el nombre, el cargo y la firma de la persona entrevistada, y que sus respuestas permitan rastrear los requisitos del proyecto.
+
+## 2026-11-21 - Precisión de la declaración personal de IA
+
+Por solicitud de Byron, se resumió su declaración para reconocer explícitamente el informe original de CLAB y los aportes versionados del equipo como base del documento. Se mantuvieron los usos registrados de Codex en organización, adaptación y borradores técnicos, integración, corrección de escritura, comprobaciones, código inicial del esqueleto y pruebas automatizadas. No se atribuyeron a Byron ejecuciones o verificaciones personales que no consten en sus evidencias. La declaración de los demás integrantes se conservó sin cambios.
