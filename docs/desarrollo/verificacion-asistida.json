@@ -1,0 +1,38 @@
+{
+  "inicio_utc": "2026-11-22T02:54:57.174101+00:00",
+  "entorno": "Linux",
+  "java": "openjdk version \"25.0.5.1\" 2026-11-17 LTS\nOpenJDK Runtime Environment Temurin-25.0.5.1+2 (build 25.0.5.1+2-LTS)\nOpenJDK 64-Bit Server VM Temurin-25.0.5.1+2 (build 25.0.5.1+2-LTS, mixed mode, sharing)",
+  "alcance": "Dos JAR reales, HTTP local; no prueba negocio, bases ni autorizacion.",
+  "jars_sha256": {
+    "laboratorios": "c3264532a12513b25ed13f94de7e10a8cb1f0151b08a79f7dae76f398e09d1c9",
+    "reservas": "790a0bf5ebbc19b74220cf1ab61971ed1eff60dd01b73ef9c7f368cd8710638b"
+  },
+  "casos": [
+    {
+      "nombre": "consulta_directa",
+      "estado_esperado": 200,
+      "estado_observado": 200,
+      "correcto": true
+    },
+    {
+      "nombre": "comunicacion_entre_procesos",
+      "estado_esperado": 200,
+      "estado_observado": 200,
+      "correcto": true
+    },
+    {
+      "nombre": "dependencia_detenida",
+      "estado_esperado": 503,
+      "estado_observado": 503,
+      "correcto": true
+    },
+    {
+      "nombre": "recuperacion_sin_reiniciar_reservas",
+      "estado_esperado": 200,
+      "estado_observado": 200,
+      "correcto": true
+    }
+  ],
+  "correcto": true,
+  "fin_utc": "2026-11-22T02:55:04.818015+00:00"
+}

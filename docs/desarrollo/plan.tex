@@ -1,0 +1,34 @@
+% !TeX root = ../main.tex
+\section{Plan técnico y verificación del esqueleto}
+\label{sec:clab-plan-desarrollo}
+
+El plan de cuatro entregas se desarrolla en
+\path{docs/desarrollo/plan-entregas.md}. E1 tiene fecha confirmada del
+29 de noviembre de 2026 a las 23:55. Para E2, E3 y E4 se proponen ventanas
+relativas de dos semanas por incremento, sujetas al calendario oficial y a la
+capacidad del equipo; no se recibieron sus fechas oficiales.
+
+\begin{description}
+  \item[E1:] comunicación y ADR-002; esqueleto reproducible, seguimiento E1/E2
+  y demostración real. El contraste con resultados originales de PE-U1 queda
+  pendiente de recibirlos.
+  \item[E2:] contratos de API, contenedores de Reservas y Laboratorios e inicio
+  de Identidad. Inventariar las reglas SQL antes de migrarlas.
+  \item[E3:] separación de datos, concurrencia de agenda y trámites durables de
+  cierre y reapertura, con pruebas de fallos, duplicados y reinicio.
+  \item[E4:] completar Información y Avisos, proyecciones y módulos previstos;
+  integrar SPA, seguridad, pruebas de extremo a extremo y defensa final.
+\end{description}
+
+El backlog identifica tareas, dependencias, responsables por rol y criterios
+para E1 y E2. No sustituye un tablero GitHub Projects. Su creación, el enlace
+al proyecto y las asignaciones concretas requieren actuación y confirmación
+del equipo; no se declaran realizados desde el archivo de planificación.
+
+Las instrucciones de ejecución se entregan en \path{docs/desarrollo/README.md}.
+La prueba \path{scripts/verificar_esqueleto.py} utiliza dos JAR reales, inicia
+sus propios procesos y comprueba éxito, caída de la dependencia y recuperación.
+Su resultado asistido se registra en
+\path{docs/desarrollo/verificacion-asistida.json}, junto con el alcance en
+\path{docs/desarrollo/verificacion.md}. Las pruebas automatizadas no sustituyen
+la ejecución personal ni el video; no prueban reservas, bases o permisos reales.
