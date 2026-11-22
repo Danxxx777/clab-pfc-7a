@@ -133,8 +133,9 @@ pdflatex -interaction=nonstopmode -halt-on-error main.tex
 pdflatex -interaction=nonstopmode -halt-on-error main.tex
 ```
 
-La distribución TeX debe incluir `fontenc`, `babel` con español, `csquotes`,
-`graphicx`, `geometry`, `pdflscape`, `longtable`, `array`, `biblatex` con el estilo
+El cuerpo utiliza la clase `IEEEtran`, en dos columnas, y conserva la portada
+académica. La distribución TeX debe incluir `fontenc`, `babel` con español, `csquotes`,
+`graphicx`, `array`, `microtype`, `enumitem`, las fuentes Times de `psnfss`, `biblatex` con el estilo
 `ieee`, `xurl` e `hyperref`. Las bibliografías son `docs/referencias.bib` y
 `docs/arquitectura/fuentes-arquitectura.bib`. Las figuras C4 se incluyen desde
 `docs/figuras` y las capturas desde `evidencias`.

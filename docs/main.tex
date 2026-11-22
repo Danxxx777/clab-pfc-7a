@@ -1,14 +1,19 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[conference,a4paper]{IEEEtran}
 
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
 \usepackage{csquotes}
 \usepackage{graphicx}
-\usepackage{geometry}
-\usepackage{pdflscape}
-\usepackage{longtable}
 \usepackage{array}
+\usepackage{microtype}
+\usepackage{enumitem}
+\setlist[description]{style=unboxed,leftmargin=0pt,labelindent=0pt,labelsep=0.5em,font=\normalfont\bfseries,topsep=3pt,itemsep=3pt,parsep=0pt}
 \setlength{\emergencystretch}{1em}
+\setlength{\textfloatsep}{9pt plus 2pt minus 2pt}
+\setlength{\dbltextfloatsep}{9pt plus 2pt minus 2pt}
+\setlength{\floatsep}{8pt plus 2pt minus 2pt}
+\setlength{\dblfloatsep}{8pt plus 2pt minus 2pt}
+\raggedbottom
 \usepackage[backend=biber,style=ieee,sorting=none,maxbibnames=99]{biblatex}
 \DefineBibliographyStrings{spanish}{artno = {art\adddot}}
 \AtBeginBibliography{\setlength{\emergencystretch}{1em}}
@@ -22,10 +27,11 @@
 
 \begin{document}
 
-% Documento de integración E1: conservar las contribuciones identificadas.
-% Completar solo con información comprobada y aprobada por el equipo.
-% Esta estructura no equivale a una entrega terminada.
+\onecolumn
 \ByronPortada
+\twocolumn
+\setcounter{page}{2}
+\pagestyle{plain}
 \ByronResumen
 \ByronContexto
 \ByronObjetivos

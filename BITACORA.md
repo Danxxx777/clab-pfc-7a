@@ -88,3 +88,9 @@ Byron indicó aplazar momentáneamente el acta o el audio del levantamiento. Se 
 Por solicitud de Byron, Codex retiró el código heredado del repositorio del PFC y preparó el historial de `main` desde noviembre de 2026. Se conservaron los 24 commits existentes del equipo actual, incluidos los dos últimos aportes de Roger, con sus autores, fechas y mensajes originales. La reescritura cambió sus identificadores y se actualizaron las referencias documentales. El esqueleto de E1 en `src/` se conservó sin cambios.
 
 Antes de la limpieza se guardaron un respaldo completo del historial y una copia de los cambios locales pendientes, incluido su estado de preparación para commits. La procedencia de CLAB se mantiene mediante el enlace al repositorio original y el informe antecedente. Las entradas anteriores de esta bitácora describen el estado que existía en cada sesión.
+
+## 2026-11-21 - Ajuste de la presentación del informe
+
+Por solicitud de Byron, Codex cambió el cuerpo del documento a la clase IEEEtran de dos columnas y conservó la portada académica. Se ajustaron las listas, la tabla de aportes, las figuras y las capturas para retirar los saltos forzados y aprovechar el ancho disponible, sin modificar sus datos ni los archivos de evidencia. Se actualizaron las dependencias de compilación en el README.
+
+Antes de guardar esta versión se incorporó el commit `6aaa159` de Carlos, que actualiza su declaración de IA. Se recompiló con pdfLaTeX y Biber y se revisó el PDF renderizado. El documento pasó de 31 a 14 páginas; se comprobaron las dieciséis historias, los cinco objetivos específicos, las diecisiete referencias y la ausencia de citas indefinidas y desbordes.

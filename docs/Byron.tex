@@ -2,6 +2,8 @@
 
 \newcommand{\ByronPortada}{%
   \begin{titlepage}
+    \fontsize{12}{14}\selectfont
+    \renewcommand{\arraystretch}{1.3}
     \centering
     {\Large\bfseries Universidad Técnica Estatal de Quevedo\par}
     \vspace{0.4cm}
@@ -301,19 +303,17 @@
   registradas con asistencia de IA se detallan en la bitácora y en las
   declaraciones de sus responsables.
 
-  \begingroup
+  \begin{table*}[!t]
+  \caption{Aportes registrados y enlaces de seguimiento.}
+  \label{tab:aportes}
+  \centering
   \small
   \setlength{\tabcolsep}{4pt}
-  \renewcommand{\arraystretch}{1.2}
-  \begin{longtable}{|>{\raggedright\arraybackslash}p{0.23\linewidth}|>{\raggedright\arraybackslash}p{0.48\linewidth}|>{\raggedright\arraybackslash}p{0.21\linewidth}|}
+  \renewcommand{\arraystretch}{1.1}
+  \begin{tabular}{|>{\raggedright\arraybackslash}p{0.23\textwidth}|>{\raggedright\arraybackslash}p{0.48\textwidth}|>{\raggedright\arraybackslash}p{0.21\textwidth}|}
     \hline
     \textbf{Integrante o cuenta} & \textbf{Trabajo registrado} &
     \textbf{Commits e issue} \\ \hline
-    \endfirsthead
-    \hline
-    \textbf{Integrante o cuenta} & \textbf{Trabajo registrado} &
-    \textbf{Commits e issue} \\ \hline
-    \endhead
 
     Byron Daniel Loor Mendoza\par\texttt{Danxxx777} &
     Organización inicial del esqueleto; conservación del informe antecedente;
@@ -357,8 +357,8 @@
     \href{https://github.com/Danxxx777/clab-pfc-7a/commit/b212d70}{\texttt{b212d70}}\par
     \href{https://github.com/Danxxx777/clab-pfc-7a/issues/4}{Issue 4}
     \\ \hline
-  \end{longtable}
-  \endgroup
+  \end{tabular}
+  \end{table*}
 
   \paragraph{Vinculación con issues.}
   Las issues 1 a 4 se crearon el 21 de noviembre de 2026 y se asignaron a
@@ -397,9 +397,6 @@
 }
 
 \newcommand{\ByronEvidenciasEsqueleto}{%
-  \clearpage
-  \newgeometry{margin=12mm}
-  \begin{landscape}
   \section{Capturas de ejecución del esqueleto}
   Las tres capturas fueron incorporadas por la cuenta
   \texttt{CarlosManotoa007} en el commit
@@ -407,28 +404,24 @@
   Muestran el usuario \texttt{carlos}, el equipo \texttt{cachyos-x8664} y
   la fecha del sistema, 20 de noviembre de 2026, con zona horaria UTC-5.
 
-  \begin{figure}[!ht]
+  \begin{figure*}[!t]
     \centering
-    \includegraphics[width=\linewidth,height=0.58\textheight,keepaspectratio]{../evidencias/Laboratorio.png}
+    \includegraphics[width=\textwidth]{../evidencias/Laboratorio.png}
     \caption{Arranque de los procesos en los puertos 8081 y 8082 y respuesta
     HTTP 200 de Reservas con el mensaje recibido de Laboratorios.}
-  \end{figure}
-  \clearpage
+  \end{figure*}
 
-  \begin{figure}[p]
+  \begin{figure*}[!t]
     \centering
-    \includegraphics[width=\linewidth,height=0.80\textheight,keepaspectratio]{../evidencias/Consultas.png}
+    \includegraphics[width=\textwidth]{../evidencias/Consultas.png}
     \caption{Consultas a Laboratorios y Reservas con respuestas HTTP 200 y
     contenido JSON.}
-  \end{figure}
+  \end{figure*}
 
-  \begin{figure}[p]
+  \begin{figure*}[!t]
     \centering
-    \includegraphics[width=\linewidth,height=0.80\textheight,keepaspectratio]{../evidencias/Reservas.png}
+    \includegraphics[width=\textwidth]{../evidencias/Reservas.png}
     \caption{Respuesta HTTP 503 al detener Laboratorios y nueva respuesta
     HTTP 200 tras volver a iniciar ese proceso.}
-  \end{figure}
-  \end{landscape}
-  \restoregeometry
-  \clearpage
+  \end{figure*}
 }
