@@ -145,6 +145,10 @@ El informe integra los aportes disponibles de arquitectura, requisitos y
 calidad, la tabla de aportes y las capturas. La aprobación de las propuestas
 y la integración de los apartados restantes de E1 siguen pendientes.
 
+### Video de E1
+
+[Ver presentación y demostración de CLAB] https://youtu.be/whyKD8NsjFg
+
 ## Asistencia de IA
 
 La reorganización en `legado/`, el esqueleto Java, sus pruebas automatizadas y estas instrucciones se prepararon con asistencia de OpenAI Codex. El asistente compiló los servicios y ejecutó las tres pruebas automatizadas con respuestas simuladas. Las evidencias de ejecución personal se obtienen en las sesiones de los integrantes.
