@@ -1,0 +1,43 @@
+% !TeX root = ../main.tex
+\section{Modelo de comunicación y mecanismo principal}
+\label{sec:clab-comunicacion}
+
+Se propone REST con JSON como mecanismo principal de CLAB, conservando el
+esqueleto existente y su integración con la SPA. ADR-002, ubicado en
+\path{docs/adr/ADR-002-mecanismo-comunicacion.md}, registra la comparación con
+gRPC y mensajería mediante broker y mantiene el estado de propuesta. No se
+dispone de los resultados originales de PE-U1 para una comparación experimental;
+el desempeño relativo no se presenta como medido.
+
+\begin{description}
+  \item[I01 e I02--I05:] navegación de las personas y solicitudes de la SPA a
+  las cuatro API. SPA a API es frontend/backend, no comunicación entre dos
+  servicios backend. Se prevé HTTPS y comprobación de permisos por operación.
+  \item[I06--I08:] Laboratorios, Reservas e Información consultan Identidad
+  sincrónicamente; si no se puede autorizar, no se ejecuta la operación protegida.
+  \item[I09:] Reservas consulta catálogo en Laboratorios; la ocupación y la
+  barrera de admisión se verifican localmente en Reservas al confirmar.
+  \item[I10--I12:] Información consulta cambios durables por REST periódico.
+  La proyección es diferida, aunque cada petición HTTP espera una respuesta.
+  Debe usar cursores durables y aplicación idempotente, sin secretos de usuarios.
+  \item[I13:] Laboratorios solicita activar o retirar la barrera de Reservas
+  con ID estable y revisión creciente. El manejador no vuelve a invocar I09.
+  Un timeout deja resultado desconocido: se consulta el mismo ID, sin asumir
+  rollback. Se conserva el orden de cierre y reapertura de ADR-001.
+  \item[D01--D04:] acceso exclusivo de cada servicio a su almacén, sin SQL
+  entre dominios. No implica una transacción distribuida entre bases.
+\end{description}
+
+El inventario completo de emisor, receptor, datos, mecanismo y fallo se entrega
+en \path{docs/desarrollo/modelo-comunicacion.md}. Incluye propuestas de contratos,
+errores, versionado, correlación y reintentos para E2. HTTPS, autorización,
+persistencia y propagación de cambios no están implementados en el esqueleto.
+
+En E1, \path{/api/reservas/comunicacion} consulta por HTTP local a
+\path{/api/laboratorios/info}, incluye el mensaje en su respuesta y devuelve
+503 si la dependencia falla o no devuelve contenido utilizable. El cliente
+configura dos segundos de conexión y dos segundos de lectura; no constituyen
+un límite garantizado de extremo a extremo. No se crean reservas reales.
+
+Esta sección se preparó con asistencia de OpenAI GPT-6.1 Sol. Las ejecuciones
+automatizadas del asistente y la aceptación del equipo se documentan por separado.
