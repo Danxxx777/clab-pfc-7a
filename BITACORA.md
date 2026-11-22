@@ -140,3 +140,9 @@ La incorporación del respaldo escrito se describe en Contexto y problema, sin a
 ## 2026-11-21 - Retiro del apartado técnico independiente
 
 Por solicitud de Byron, se retiró el apartado independiente de asistencia técnica y su referencia a Carlos. La ayuda real recibida en la base inicial del repositorio se conservó como antecedente general al inicio de la sección de IA, sin atribuir esas comprobaciones a ningún integrante. La declaración personal de Carlos y sus archivos se mantuvieron sin cambios.
+
+## 2026-11-21 - Comprobación e integración de los últimos aportes
+
+Antes de guardar la versión solicitada por Byron, se incorporaron los commits `9d04db6` y `9e39506` de Roger. Se conectaron al documento principal sus archivos LaTeX de comunicación, planificación y declaración personal de IA, conservando sus fuentes sin modificaciones. La declaración anterior resumida de Roger se sustituyó por el fragmento personal que incorporó él. Se actualizaron los enlaces de sus aportes y se recompiló el PDF integrado con pdfLaTeX y Biber. Esta comprobación documental no ejecuta ni acredita como personales las pruebas del esqueleto.
+
+La revisión visual incluyó los nuevos apartados y la tabla de aportes. Se ajustó el interlineado de las referencias, conservando su tamaño de letra, para evitar una página con solo las dos últimas referencias. El PDF integrado consta de 20 páginas y no presenta desbordes ni citas indefinidas.

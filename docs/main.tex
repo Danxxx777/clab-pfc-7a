@@ -18,10 +18,10 @@
 \setlength{\intextsep}{6pt plus 2pt minus 2pt}
 \raggedbottom
 \usepackage[backend=biber,style=ieee,sorting=none,maxbibnames=99]{biblatex}
-\renewcommand*{\bibfont}{\footnotesize}
-\setlength{\bibitemsep}{2pt}
+\renewcommand*{\bibfont}{\fontsize{9}{10}\selectfont}
+\setlength{\bibitemsep}{0pt}
 \DefineBibliographyStrings{spanish}{artno = {art\adddot}}
-\AtBeginBibliography{\footnotesize\setlength{\emergencystretch}{1em}}
+\AtBeginBibliography{\setlength{\emergencystretch}{1em}}
 \addbibresource{referencias.bib}
 \addbibresource{arquitectura/fuentes-arquitectura.bib}
 \usepackage{xurl}
@@ -48,9 +48,12 @@
 
 \input{arquitectura/justificacion.tex}
 \input{arquitectura/c4.tex}
+\input{desarrollo/comunicacion.tex}
 \input{arquitectura/cap-pacelc.tex}
 
 \CarlosRiesgosTecnicos
+
+\input{desarrollo/plan.tex}
 
 \ByronEvidenciasEsqueleto
 
@@ -63,6 +66,7 @@ automatizadas y ejecutar las comprobaciones registradas en \texttt{BITACORA.md}.
 
 \CarlosDeclaracionIA
 \ByronDeclaracionIntegracion
+\input{desarrollo/declaracion-ia.tex}
 \ByronDeclaracionesRegistradas
 
 \printbibliography[heading=bibnumbered,title={Referencias}]
