@@ -11,10 +11,10 @@
     \vspace{1.2cm}
     {\Large\bfseries CLAB\par}
     \vspace{0.3cm}
-    {\large Sistema distribuido de gestión de laboratorios\par}
+    {\large Sistema de gestión de laboratorios\par}
     \vspace{0.8cm}
     \textbf{Proyecto Fin de Curso, entrega 1}\par
-    Definición, requisitos y arquitectura base del sistema distribuido\par
+    Definición, requisitos y propuesta de arquitectura base\par
     \vspace{0.8cm}
     TA-PFC-E1\par
     Aplicaciones Distribuidas (ISR-701)\par
@@ -27,10 +27,10 @@
     Responsable de Documentación\par
     \vspace{0.25cm}
     \textbf{Roger Garcia}\par
-    Arquitecto\par
+    Líder de Desarrollo\par
     \vspace{0.25cm}
     \textbf{Juliana Emanuel Pino}\par
-    Líder de Desarrollo\par
+    Arquitecta\par
     \vspace{0.25cm}
     \textbf{Carlos Manotoa}\par
     Responsable de Calidad\par
@@ -51,14 +51,15 @@
 
 \newcommand{\ByronResumen}{%
   \section*{Resumen ejecutivo}
-  CLAB es un proyecto universitario orientado a la gestión de los laboratorios
+  CLAB es una aplicación web desarrollada en semestres anteriores para la gestión de los laboratorios
   informáticos de la Facultad de Ciencias de la Computación de la Universidad
   Técnica Estatal de Quevedo. El informe original describe reservas coordinadas
   por correo o mensajería, inventarios en hojas de cálculo, reportes verbales de
   fallas y dificultades para disponer de información consolidada sobre el uso
-  de los espacios. Ese antecedente documenta una aplicación con Angular,
-  Spring Boot y PostgreSQL y sirve como punto de partida para su evolución
-  durante el Proyecto Fin de Curso de Aplicaciones Distribuidas
+  de los espacios. Ese antecedente documenta una aplicación web con Angular,
+  un backend centralizado en Spring Boot y PostgreSQL. La arquitectura
+  distribuida se plantea como una propuesta de evolución durante el
+  Proyecto Fin de Curso de Aplicaciones Distribuidas
   \cite[pp.~4--5, 19--20]{clabAntecedente2026}.
 
   Los usuarios previstos son docentes, coordinadores de carrera, administradores
@@ -82,8 +83,8 @@
   requisitos y la arquitectura y demuestra la comunicación entre dos procesos.
   E2 desarrollará las API y la contenerización. E3 abordará los datos y el
   procesamiento distribuido. E4 completará la integración, las pruebas y la
-  observabilidad. El esqueleto actual permite consultar Laboratorios desde
-  Reservas y observar un error cuando la dependencia está detenida.
+  observabilidad. El esqueleto de E1 demuestra comunicación entre dos procesos;
+  no equivale a la migración distribuida del sistema de negocio.
 
   La validación combinará criterios funcionales, pruebas de concurrencia y
   mediciones de calidad. El diagnóstico del informe previo se conserva como
@@ -334,18 +335,20 @@
     \href{https://github.com/Danxxx777/clab-pfc-7a/issues/1}{Issue 1}
     \\ \hline
 
-    Roger Garcia\par\texttt{Esteiben} &
+    Roger Garcia\par Líder de Desarrollo\par\texttt{Esteiben} &
     Propuesta de arquitectura distribuida, ADR-001 y diagramas C4 editables;
-    ampliación de CAP/PACELC y protocolo de cierre y reapertura.
+    ampliación de CAP/PACELC, protocolo de cierre y reapertura y
+    \href{https://github.com/Danxxx777/clab-pfc-7a/tree/main/evidencias/diseno}{material de revisión del diseño}.
     El registro conserva el estado propuesto de las decisiones. &
     \href{https://github.com/Danxxx777/clab-pfc-7a/commit/d65150e}{\texttt{d65150e}}\par
     \href{https://github.com/Danxxx777/clab-pfc-7a/commit/c4d79ac}{\texttt{c4d79ac}}\par
     \href{https://github.com/Danxxx777/clab-pfc-7a/commit/6e1b5b5}{\texttt{6e1b5b5}}\par
     \href{https://github.com/Danxxx777/clab-pfc-7a/commit/b54cd19}{\texttt{b54cd19}}\par
+    \href{https://github.com/Danxxx777/clab-pfc-7a/commit/040854a}{\texttt{040854a}}\par
     \href{https://github.com/Danxxx777/clab-pfc-7a/issues/2}{Issue 2}
     \\ \hline
 
-    Juliana Emanuel Pino\par\texttt{JulianaEmanuel} &
+    Juliana Emanuel Pino\par Arquitecta\par\texttt{JulianaEmanuel} &
     Actualización del runtime a Java 25 y borradores de los diagramas C4
     y del análisis CAP y PACELC. &
     \href{https://github.com/Danxxx777/clab-pfc-7a/commit/bbbf3dd}{\texttt{bbbf3dd}}\par
@@ -396,14 +399,14 @@
 }
 
 \newcommand{\ByronDeclaracionesRegistradas}{%
-  \paragraph{Arquitectura, cuenta Esteiben.}
+  \paragraph{Roger Garcia, Líder de Desarrollo, cuenta Esteiben.}
   ADR-001 y la justificación registran asistencia de OpenAI, modelo GPT-6.1 Sol,
   en la preparación de la propuesta a partir del documento previo y del código
   consultado. Los registros distinguen los dos procesos mínimos de E1 de los
   cuatro servicios propuestos. La integración comprobó la presencia de los
   diagramas editables, sus figuras y las citas del documento.
 
-  \paragraph{Desarrollo y CAP/PACELC, cuentas JulianaEmanuel y Esteiben.}
+  \paragraph{Registros de CAP/PACELC, cuentas JulianaEmanuel y Esteiben.}
   El archivo \path{docs/arquitectura/cap-pacelc.tex} distingue el borrador
   de JulianaEmanuel, preparado con OpenAI Codex en el commit
   \texttt{85e7c67}, de la ampliación de Esteiben, registrada en

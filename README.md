@@ -1,12 +1,12 @@
 # CLAB - Proyecto Fin de Curso
 
-CLAB gestiona los laboratorios y sus reservas. Esta base para E1 contiene dos servicios Java independientes que intercambian información mediante HTTP y JSON.
+CLAB es la aplicación web de gestión de laboratorios y reservas desarrollada en semestres anteriores, con un backend centralizado. El PFC de Aplicaciones Distribuidas propone evolucionarla hacia una arquitectura distribuida. Esta base para E1 contiene dos servicios Java mínimos que intercambian información mediante HTTP y JSON; ese esqueleto no equivale a la migración del sistema de negocio.
 
 ## Integrantes y responsabilidades de E1
 
 - Byron Daniel Loor Mendoza, Responsable de Documentación. [Seguimiento del bloque](https://github.com/Danxxx777/clab-pfc-7a/issues/1).
-- Roger Garcia (`Esteiben`), Arquitecto. [Arquitectura y ADR-001](https://github.com/Danxxx777/clab-pfc-7a/issues/2).
-- Juliana Emanuel Pino (`JulianaEmanuel`), Líder de Desarrollo. [Comunicación, esqueleto y plan técnico](https://github.com/Danxxx777/clab-pfc-7a/issues/3).
+- Roger Garcia (`Esteiben`), Líder de Desarrollo. [Comunicación, esqueleto y plan técnico](https://github.com/Danxxx777/clab-pfc-7a/issues/3).
+- Juliana Emanuel Pino (`JulianaEmanuel`), Arquitecta. [Arquitectura y ADR-001](https://github.com/Danxxx777/clab-pfc-7a/issues/2).
 - Carlos Manotoa (`CarlosManotoa007`), Responsable de Calidad. [Calidad y evidencias](https://github.com/Danxxx777/clab-pfc-7a/issues/4).
 
 Las issues se abrieron el 21 de noviembre de 2026 para vincular los aportes

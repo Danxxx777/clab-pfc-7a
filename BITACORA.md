@@ -110,3 +110,13 @@ Se revisaron la corrección de la declaración personal del punto 4 de SGRA y la
 Se contrastó la copia de trabajo con main remoto y se comprobó que todos los archivos LaTeX y los cuatro bloques de Carlos están incluidos en el documento principal. Se añadieron a la tabla los enlaces a la ampliación CAP/PACELC y al protocolo de cierre y reapertura de Roger, la última declaración de Carlos y los commits de integración documental. El registro de IA de CAP/PACELC distingue el borrador de Juliana de la ampliación de Roger y mantiene identificados los datos personales que no constan en el borrador.
 
 El PDF se recompiló y se revisó visualmente, conservando 18 páginas, las historias, los objetivos, las referencias y el orden de sus elementos. Esta integración recoge lo disponible en el repositorio; no acredita que ya estén entregados ADR-002, el plan y cronograma con el enlace al tablero de E1/E2, el video ni los respaldos primarios aplazados.
+
+## 2026-11-21 - Corrección del estado del sistema y de los roles
+
+Byron aclaró que CLAB es la aplicación web desarrollada dos semestres antes y que su transformación en un sistema distribuido es el objetivo propuesto del PFC. Codex retiró esa calificación del título de la portada y distinguió en el resumen y el README la aplicación de origen con backend centralizado, la arquitectura propuesta y el esqueleto técnico mínimo de E1.
+
+Byron confirmó que Roger Garcia es Líder de Desarrollo y Juliana Emanuel Pino es Arquitecta. Se corrigieron la portada, la tabla de aportes, el encabezado del registro de IA de Roger y el README. Las issues de Arquitectura y Desarrollo se asignaron a JulianaEmanuel y Esteiben, respectivamente. Se conservaron los autores y enlaces de los aportes existentes, que no determinan por sí mismos el rol del integrante.
+
+Se recompiló con pdfLaTeX y Biber y se revisaron la portada y el resumen renderizados. El PDF conserva 18 páginas, los elementos documentales y los enlaces, sin desbordes ni citas indefinidas. La fecha de portada continúa siendo el 21 de noviembre de 2026.
+
+Durante la comprobación final se incorporó el commit `040854a` de Roger, con el material de revisión de diseño y su registro de procedencia en `evidencias/diseno/`. Los archivos se conservaron sin modificaciones y su commit se vinculó en la tabla de aportes.
