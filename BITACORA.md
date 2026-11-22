@@ -120,3 +120,9 @@ Byron confirmó que Roger Garcia es Líder de Desarrollo y Juliana Emanuel Pino 
 Se recompiló con pdfLaTeX y Biber y se revisaron la portada y el resumen renderizados. El PDF conserva 18 páginas, los elementos documentales y los enlaces, sin desbordes ni citas indefinidas. La fecha de portada continúa siendo el 21 de noviembre de 2026.
 
 Durante la comprobación final se incorporó el commit `040854a` de Roger, con el material de revisión de diseño y su registro de procedencia en `evidencias/diseno/`. Los archivos se conservaron sin modificaciones y su commit se vinculó en la tabla de aportes.
+
+## 2026-11-21 - Respaldo escrito del levantamiento de E1
+
+Carlos Manotoa indicó que el equipo presentará el cuestionario respondido, documentado y autorizado como respaldo escrito de la entrevista. Otro integrante del equipo lo incorporará en `evidencias/`. La incorporación queda pendiente a nivel grupal.
+
+Para verificar el respaldo frente a la guía de E1, queda pendiente comprobar que el documento registre la fecha de la entrevista, el nombre, el cargo y la firma de la persona entrevistada, y que sus respuestas permitan rastrear los requisitos del proyecto.
