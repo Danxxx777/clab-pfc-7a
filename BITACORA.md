@@ -130,3 +130,9 @@ Para verificar el respaldo frente a la guía de E1, queda pendiente comprobar qu
 ## 2026-11-21 - Precisión de la declaración personal de IA
 
 Por solicitud de Byron, se resumió su declaración para reconocer explícitamente el informe original de CLAB y los aportes versionados del equipo como base del documento. Se mantuvieron los usos registrados de Codex en organización, adaptación y borradores técnicos, integración, corrección de escritura, comprobaciones, código inicial del esqueleto y pruebas automatizadas. No se atribuyeron a Byron ejecuciones o verificaciones personales que no consten en sus evidencias. La declaración de los demás integrantes se conservó sin cambios.
+
+## 2026-11-21 - Separación de la declaración documental y el registro técnico
+
+Byron pidió aclarar la relación entre su declaración de IA, las pruebas técnicas y el respaldo del levantamiento. Se acotó su declaración personal a los usos documentales registrados: organización y adaptación del material, borradores técnicos, integración, corrección y comprobación del informe. La asistencia de Codex en la base inicial del esqueleto y sus pruebas automatizadas se mantuvo en un registro técnico separado de la misma sección, con identificación del asistente como ejecutor de las comprobaciones registradas.
+
+La incorporación del respaldo escrito se describe en Contexto y problema, sin atribuir a Byron pruebas técnicas pendientes ni afirmar que la entrevista ya está acreditada. Se documentó el commit `2de4c91` de Carlos y se añadió su enlace a la tabla de aportes. La consulta a main remoto no encontró nuevos commits posteriores a la revisión anterior. Se mantienen las declaraciones de los demás integrantes y los archivos de evidencia sin modificaciones.
