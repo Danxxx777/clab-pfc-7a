@@ -1,22 +1,27 @@
-\documentclass[conference,a4paper]{IEEEtran}
+\documentclass[11pt,a4paper]{article}
 
 \usepackage[T1]{fontenc}
+\renewcommand{\rmdefault}{ptm}
+\renewcommand{\ttdefault}{pcr}
+\usepackage[margin=20mm]{geometry}
 \usepackage[spanish]{babel}
 \usepackage{csquotes}
 \usepackage{graphicx}
+\usepackage{float}
 \usepackage{array}
 \usepackage{microtype}
 \usepackage{enumitem}
 \setlist[description]{style=unboxed,leftmargin=0pt,labelindent=0pt,labelsep=0.5em,font=\normalfont\bfseries,topsep=3pt,itemsep=3pt,parsep=0pt}
 \setlength{\emergencystretch}{1em}
 \setlength{\textfloatsep}{9pt plus 2pt minus 2pt}
-\setlength{\dbltextfloatsep}{9pt plus 2pt minus 2pt}
 \setlength{\floatsep}{8pt plus 2pt minus 2pt}
-\setlength{\dblfloatsep}{8pt plus 2pt minus 2pt}
+\setlength{\intextsep}{6pt plus 2pt minus 2pt}
 \raggedbottom
 \usepackage[backend=biber,style=ieee,sorting=none,maxbibnames=99]{biblatex}
+\renewcommand*{\bibfont}{\footnotesize}
+\setlength{\bibitemsep}{2pt}
 \DefineBibliographyStrings{spanish}{artno = {art\adddot}}
-\AtBeginBibliography{\setlength{\emergencystretch}{1em}}
+\AtBeginBibliography{\footnotesize\setlength{\emergencystretch}{1em}}
 \addbibresource{referencias.bib}
 \addbibresource{arquitectura/fuentes-arquitectura.bib}
 \usepackage{xurl}
@@ -27,9 +32,7 @@
 
 \begin{document}
 
-\onecolumn
 \ByronPortada
-\twocolumn
 \setcounter{page}{2}
 \pagestyle{plain}
 \ByronResumen
@@ -49,14 +52,14 @@
 
 \CarlosRiesgosTecnicos
 
+\ByronEvidenciasEsqueleto
+
 \ByronTablaAportes
 
 \section{Declaración de uso de inteligencia artificial}
 \CarlosDeclaracionIA
 \ByronDeclaracionIntegracion
 \ByronDeclaracionesRegistradas
-
-\ByronEvidenciasEsqueleto
 
 \printbibliography[heading=bibnumbered,title={Referencias}]
 

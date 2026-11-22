@@ -133,9 +133,10 @@ pdflatex -interaction=nonstopmode -halt-on-error main.tex
 pdflatex -interaction=nonstopmode -halt-on-error main.tex
 ```
 
-El cuerpo utiliza la clase `IEEEtran`, en dos columnas, y conserva la portada
-académica. La distribución TeX debe incluir `fontenc`, `babel` con español, `csquotes`,
-`graphicx`, `array`, `microtype`, `enumitem`, las fuentes Times de `psnfss`, `biblatex` con el estilo
+El informe utiliza la clase `article`, en una columna compacta, conserva la
+portada académica y coloca las figuras y tablas dentro de su sección.
+La distribución TeX debe incluir `fontenc`, `geometry`, `babel` con español, `csquotes`,
+`graphicx`, `float`, `array`, `microtype`, `enumitem`, las fuentes Times y Courier de `psnfss`, `biblatex` con el estilo
 `ieee`, `xurl` e `hyperref`. Las bibliografías son `docs/referencias.bib` y
 `docs/arquitectura/fuentes-arquitectura.bib`. Las figuras C4 se incluyen desde
 `docs/figuras` y las capturas desde `evidencias`.

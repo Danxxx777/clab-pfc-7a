@@ -94,3 +94,9 @@ Antes de la limpieza se guardaron un respaldo completo del historial y una copia
 Por solicitud de Byron, Codex cambió el cuerpo del documento a la clase IEEEtran de dos columnas y conservó la portada académica. Se ajustaron las listas, la tabla de aportes, las figuras y las capturas para retirar los saltos forzados y aprovechar el ancho disponible, sin modificar sus datos ni los archivos de evidencia. Se actualizaron las dependencias de compilación en el README.
 
 Antes de guardar esta versión se incorporó el commit `6aaa159` de Carlos, que actualiza su declaración de IA. Se recompiló con pdfLaTeX y Biber y se revisó el PDF renderizado. El documento pasó de 31 a 14 páginas; se comprobaron las dieciséis historias, los cinco objetivos específicos, las diecisiete referencias y la ausencia de citas indefinidas y desbordes.
+
+## 2026-11-21 - Corrección del orden de lectura del informe
+
+Byron señaló que la distribución anterior mezclaba elementos de distintas secciones. Codex corrigió la colocación automática de tablas y figuras y dejó el informe en una columna compacta. La consigna exige un único documento LaTeX y referencias IEEE, sin imponer dos columnas. Los diagramas permanecen en Arquitectura; las capturas del esqueleto preceden a la tabla de aportes, las declaraciones de IA y las referencias finales.
+
+Se recompiló con pdfLaTeX y Biber y se revisaron las páginas renderizadas. El PDF resultante tiene 18 páginas, conserva las dieciséis historias, los cinco objetivos específicos y las diecisiete referencias, y no presenta desbordes ni citas indefinidas. Los archivos originales de evidencia, los diagramas editables y los servicios no se modificaron.
