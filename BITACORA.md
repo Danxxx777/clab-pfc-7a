@@ -100,3 +100,13 @@ Antes de guardar esta versión se incorporó el commit `6aaa159` de Carlos, que 
 Byron señaló que la distribución anterior mezclaba elementos de distintas secciones. Codex corrigió la colocación automática de tablas y figuras y dejó el informe en una columna compacta. La consigna exige un único documento LaTeX y referencias IEEE, sin imponer dos columnas. Los diagramas permanecen en Arquitectura; las capturas del esqueleto preceden a la tabla de aportes, las declaraciones de IA y las referencias finales.
 
 Se recompiló con pdfLaTeX y Biber y se revisaron las páginas renderizadas. El PDF resultante tiene 18 páginas, conserva las dieciséis historias, los cinco objetivos específicos y las diecisiete referencias, y no presenta desbordes ni citas indefinidas. Los archivos originales de evidencia, los diagramas editables y los servicios no se modificaron.
+
+## 2026-11-21 - Revisión de portada, asistencia de IA y cobertura de aportes
+
+Por solicitud de Byron, Codex sustituyó la tabla de integrantes de la portada por nombres y responsabilidades en líneas independientes y fijó la fecha de entrega del documento en el 21 de noviembre de 2026. La tabla de aportes se conservó porque forma parte de los entregables de E1.
+
+Se revisaron la corrección de la declaración personal del punto 4 de SGRA y la sección 6.1 del encuadre. La declaración de Byron se pasó a primera persona, conservando el alcance real de la asistencia en organización, textos técnicos, integración, código inicial, pruebas automatizadas y comprobaciones del documento. No se trasladaron a CLAB las ejecuciones personales de la otra actividad ni se atribuyeron a Byron las capturas de Carlos.
+
+Se contrastó la copia de trabajo con main remoto y se comprobó que todos los archivos LaTeX y los cuatro bloques de Carlos están incluidos en el documento principal. Se añadieron a la tabla los enlaces a la ampliación CAP/PACELC y al protocolo de cierre y reapertura de Roger, la última declaración de Carlos y los commits de integración documental. El registro de IA de CAP/PACELC distingue el borrador de Juliana de la ampliación de Roger y mantiene identificados los datos personales que no constan en el borrador.
+
+El PDF se recompiló y se revisó visualmente, conservando 18 páginas, las historias, los objetivos, las referencias y el orden de sus elementos. Esta integración recoge lo disponible en el repositorio; no acredita que ya estén entregados ADR-002, el plan y cronograma con el enlace al tablero de E1/E2, el video ni los respaldos primarios aplazados.
