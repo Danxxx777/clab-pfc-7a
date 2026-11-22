@@ -136,3 +136,7 @@ Por solicitud de Byron, se resumió su declaración para reconocer explícitamen
 Byron pidió aclarar la relación entre su declaración de IA, las pruebas técnicas y el respaldo del levantamiento. Se acotó su declaración personal a los usos documentales registrados: organización y adaptación del material, borradores técnicos, integración, corrección y comprobación del informe. La asistencia de Codex en la base inicial del esqueleto y sus pruebas automatizadas se mantuvo en un registro técnico separado de la misma sección, con identificación del asistente como ejecutor de las comprobaciones registradas.
 
 La incorporación del respaldo escrito se describe en Contexto y problema, sin atribuir a Byron pruebas técnicas pendientes ni afirmar que la entrevista ya está acreditada. Se documentó el commit `2de4c91` de Carlos y se añadió su enlace a la tabla de aportes. La consulta a main remoto no encontró nuevos commits posteriores a la revisión anterior. Se mantienen las declaraciones de los demás integrantes y los archivos de evidencia sin modificaciones.
+
+## 2026-11-21 - Retiro del apartado técnico independiente
+
+Por solicitud de Byron, se retiró el apartado independiente de asistencia técnica y su referencia a Carlos. La ayuda real recibida en la base inicial del repositorio se conservó como antecedente general al inicio de la sección de IA, sin atribuir esas comprobaciones a ningún integrante. La declaración personal de Carlos y sus archivos se mantuvieron sin cambios.
