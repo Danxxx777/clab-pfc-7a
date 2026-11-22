@@ -120,6 +120,10 @@ Get-Date -Format o
 
 Las capturas de ejecución, el video y la bitácora se elaboran a partir de las sesiones realizadas por los integrantes.
 
+### Video de E1
+
+[Ver presentación y demostración de CLAB] https://youtu.be/whyKD8NsjFg
+
 ## Compilación del documento de E1
 
 El archivo principal es `docs/main.tex`. Se compila con pdfLaTeX y Biber
@@ -144,10 +148,6 @@ La distribución TeX debe incluir `fontenc`, `geometry`, `babel` con español, `
 El informe integra los aportes disponibles de arquitectura, requisitos y
 calidad, la tabla de aportes y las capturas. La aprobación de las propuestas
 y la integración de los apartados restantes de E1 siguen pendientes.
-
-### Video de E1
-
-[Ver presentación y demostración de CLAB] https://youtu.be/whyKD8NsjFg
 
 ## Asistencia de IA
 
